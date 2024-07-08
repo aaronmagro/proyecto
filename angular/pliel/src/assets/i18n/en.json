@@ -1,0 +1,567 @@
+{
+    "SELECT-LANGUAGE": "Select Language",
+    "SPANISH": "Spanish",
+    "ENGLISH": "English",
+    "MAIN-PAGES": "Main Pages",
+    "CATEGORIES": "Categories",
+    "BOOKS": "Books",
+    "SEARCH": "Search",
+    "SEARCH-BOOKS-PLACEHOLDER": "Search Books...",
+    "SEARCH-CATEGORIES-PLACEHOLDER": "Search Categories...",
+    "SIGN-IN": "Sign In",
+    "SIGN-UP": "Sign Up",
+    "SIGN-OUT": "Sign Out",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "ENTER": "Get in",
+    "REGISTER": "Register",
+    "CREATE-ACCOUNT": "Create Account",
+    "SIGN-IN-WITH": "Sign In with",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "SECOND-SURNAME": "Second Surname",
+    "EMAIL": "Email",
+    "REPEAT-PASSWORD": "Repeat Password",
+    "RESET-PASSWORD": "Reset Password",
+    "NEW-PASSWORD": "New Password",
+    "OR": "Or",
+    "FORGOT-YOUR-PASSWORD": "Forgot your password?",
+    "ALREADY-HAVE-AN-ACCOUNT": "Already have an account?",
+    "ACCEPT-TERMS": "I accept the",
+    "TERMS-AND-CONDITIONS": "Terms and Conditions",
+    "SEND-LINK": "Send Link",
+    "CLOSE": "Close",
+    "ACCEPT": "Accept",
+    "HOME": "Home",
+
+    "ACCEPT-TERMS-MODAL": "Accept Terms and Conditions",
+    "TERMS-1": "Terms Acceptance",
+    "TERMS-2": "Registration",
+    "TERMS-3": "Acceptable Use",
+    "TERMS-4": "Data Protection",
+    "TERMS-5": "Account Cancellation",
+    "TERMS-6": "Modifications",
+    "TERMS-7": "Applicable Law and Jurisdiction",
+    "TERMS-8": "Contact",
+    "TERMS-1-TEXT": "By registering on our website, you agree to comply with these terms and conditions, as well as with all applicable laws and regulations in Spain. If you do not agree with any of these terms, you should not register on this site.",
+    "TERMS-2-TEXT": "To register on our website, you must provide accurate, up-to-date and complete information as requested in the registration form. You are responsible for maintaining the confidentiality of your password and account, and are fully responsible for all activities that occur under your account.",
+    "TERMS-3-TEXT": "You agree to use our website only for legal purposes and in accordance with these terms and conditions. The use of our website for illegal or unauthorized purposes is prohibited, including, but not limited to: illegal activities, copyright or intellectual property infringement, defamation or harassment.",
+    "TERMS-4-TEXT": "By registering on our website, you agree to our privacy policy and authorize us to collect, store and process your personal data in accordance with data protection laws in Spain (Organic Law 3/2018, of December 5, on Personal Data Protection and guarantee of digital rights). For more information on how we handle your personal data, please see our privacy policy.",
+    "TERMS-5-TEXT": "You may cancel your account at any time by sending a written request to our support team. We reserve the right to cancel your account at any time and for any reason, upon notification to your registered email address.",
+    "TERMS-6-TEXT": "We reserve the right to modify these terms and conditions at any time. Modifications will take effect immediately after being posted on this website. By continuing to use our site after the posting of modifications, you agree to and are subject to the modified terms.",
+    "TERMS-7-TEXT": "These terms and conditions are governed and interpreted in accordance with the laws of Spain. Any dispute related to these terms and conditions will be subject to the exclusive jurisdiction of the courts of Spain.",
+    "TERMS-8-TEXT": "If you have any questions or concerns about these terms and conditions, please contact us via the following email:",
+
+    "PRICE": "Price",
+    "LANGUAGE": "Language",
+    "PUBLISHER": "Publisher",
+    "GENRE": "Genre",
+
+    "FRENCH": "French",
+    "GERMAN": "German",
+    "ITALIAN": "Italian",
+    "PORTUGUESE": "Portuguese",
+    "CHINESE": "Chinese",
+    "JAPANESE": "Japanese",
+    "KOREAN": "Korean",
+
+    "PAGE": "Page",
+    "OF": "of",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+
+    "BY": "By",
+
+    "LOOK-THE-BOOK": "Look the book",
+
+    "WRITE-A-COMMENT-PLACEHOLDER": "Write a comment...",
+    "COMMENT": "Comment",
+    "SEND": "Send",
+    "POST-COMMENT": "Post Comment",
+    "REPLY": "Reply",
+    "REPLY-TO": "Reply to",
+    "DELETE": "Delete",
+
+    "SHOW-REPLIES": "Show Replies",
+    "HIDE-REPLIES": "Hide Replies",
+
+    "OOPS": "Oops",
+    "THE-PAGE-YOU-LOOKING-FOR-ISNT-HERE": "The page you're looking for isn't here.",
+
+    "SHOW-MORE-COMMENTS": "Show more comments",
+    "HIDE-COMMENTS": "Hide comments",
+
+    "ALL-CATEGORIES": "All Categories",
+
+    "SORT-BY": "Sort by",
+    "BEST-RATED": "Best rated",
+    "WORST-RATED": "Worst rated",
+    "MOST-COMMENTS": "Most comments",
+    "LEAST-COMMENTS": "Least comments",
+
+    "FILTER-BY-AUTHOR": "Filter by author",
+    "FILTER-BY-PUBLISHER": "Filter by publisher",
+    "FILTER-BY-ISBN": "Filter by ISBN",
+
+    "FILTER-BY-AUTHOR-PLACEHOLDER": "Search author...",
+    "FILTER-BY-PUBLISHER-PLACEHOLDER": "Search publisher...",
+    "FILTER-BY-ISBN-PLACEHOLDER": "Search ISBN...",
+
+    "FOTO-URL": "URL from the image",
+    "ENTER-YOUR-PASSWORD": "Enter your password",
+    "CURRENT-PASSWORD": "Current Password",
+    "CONFIRM-NEW-PASSWORD": "Confirm New Password",
+    "CHANGE-PASSWORD": "Change Password",
+    "DELETE-ACCOUNT": "Delete Account",
+    "PROFILE-SETTINGS": "Profile Settings",
+    "PROFILE": "Profile",
+    "UPLOAD-IMAGE": "Upload Image",
+    "USE-IMAGE-URL": "Use Image URL",
+    "IMAGE-UPLOADED": "Image uploaded",
+    "UPDATE-PROFILE": "Update Profile",
+
+    "CLEAR": "Clear",
+    "SEARCH_KEYWORD": "Search keyword",
+    "ISBN": "ISBN",
+    "AUTHOR": "Author",
+    "IMAGE": "Image",
+    "NO_BOOKS_FOUND": "No books found.",
+    "TITLE": "Title",
+    "RATING": "Rating",
+
+    "EEHH": "Eehh!",
+    "YOU-ARE-NOT-AUTHORIZED-TO-BE-HERE": "You are not authorized to be here.",
+
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "BLOCKED": "Blocked",
+    "UNBLOCKED": "Unblocked",
+    "ADMIN": "Admin",
+    "USER": "User",
+    "ROLES": "Roles",
+
+    "PHOTO": "Photo",
+    "ACTIONS": "Actions",
+
+    "DATA-MANAGEMENT": "Data Management",
+    "DASHBOARD": "Dashboard",
+
+    "SELECT-ROLE": "Select Role",
+
+    "CREATE-USER": "Create User",
+    "CREATE-BOOK": "Create Book",
+    "UPDATE-BOOK": "Update Book",
+    "CREATE-CATEGORY": "Create Category",
+    "UPDATE-CATEGORY": "Update Category",
+    "CREATE-SUBCATEGORY": "Create Subcategory",
+    "UPDATE-SUBCATEGORY": "Update Subcategory",
+
+    "ACTION": "Action",
+    "STATE": "State",
+    "IP-ADRESS": "IP Adress",
+    "CREATED-AT": "Created At",
+
+    "REFRESH": "Refresh",
+    "DELETE-ALL-LOGS": "Delete All Logs",
+    "PLACEHOLDER-STATUS": "Select Status",
+    "PLACEHOLDER-FIRST-DATE": "Select the first day and hour",
+    "PLACEHOLDER-SECOND-DATE": "Select the second day and hour",
+
+    "PPAL1": "Aarón Magro is a storyteller by nature, whose written adventures transport you to worlds where the epic and the fantastic intertwine on every page. Raised among the pages of J.R.R. Tolkien and the worlds of George R. R. Martin, Aarón has forged his own unique style in the genre of epic fantasy.",
+    "PPAL2": "Self-taught and eternal dreamer, Aarón has perfected his art by participating in writer communities and reading relentlessly everything that falls into his hands about wizards, warriors and fantastic creatures. His style combines the excitement of epic battles with the depth of intergenerational sagas, all seasoned with a touch of humor and humanity that makes his stories resonate with readers of all ages.",
+    "PPAL3": "From his first novel, which received praise for its creativity and ability to hook from the first page, Aarón Magro has established himself as a fresh and exciting voice in the genre of epic fantasy. If you are ready to get lost in a world where the impossible comes to life, do not miss the works of Aarón.",
+
+    "CONTACT-ME": "Contact Me",
+
+    "BOOKS-BY-SAME-AUTHOR": "Books by the same author",
+    "BOOKS-BY-SAME-GENRE": "Books by the same genre",
+
+    "MY-BOOKS": "My books",
+
+    "BOOK": "Book",
+    "BOOK-DETAILS": "Book Details",
+    "BOOK-IMAGE": "Book Image",
+    "CATEGORY": "Category",
+    "SUBCATEGORY": "Subcategory",
+    "DESCRIPTION": "Description",
+    "SELECT-CATEGORY": "Select Category",
+    
+    "CATEGORIES-AND-SUBCATEGORIES": "Categories and Subcategories",
+    "USERS": "Users",
+
+    "NEW": "New",
+    "DELETE-SELECTED": "Delete selected",
+    "EXPORT-TO-PDF": "Export to PDF",
+    "NEW-CATEGORY": "New Category",
+    "NEW-SUBCATEGORY": "New Subcategory",
+    "DELETE-CATEGORIES": "Delete Categories",
+    "DELETE-SUBCATEGORIES": "Delete Subcategories",
+
+    "Libros Mejor Valorados y Más Comentados": "Best Rated and Most Commented Books",
+    "Libros por Editorial": "Books by Publisher",
+    "Libros por Autor": "Books by Author",
+    "Estadísticas de Usuarios": "Users Statistics",
+    "Número de registros:": "Number of records:",
+
+    "COMMENTS": "Comments",
+    "AVERAGE_RATING": "Average Rating",
+    "RATING_COUNT": "Rating Count",
+    "BOOKS_BY_PUBLISHER": "Books by Publisher",
+    "BOOKS_BY_AUTHOR": "Books by Author",
+    "MAIN_COMMENTS": "Main Comments",
+    "REPLIES": "Replies",
+
+    "VALIDATIONS": {
+        "REQUIRED": "The field '{{field}}' is required",
+        "MAXLENGTH": "The field '{{field}}' exceeds the maximum length",
+        "MINLENGTH": "The field '{{field}}' does not meet the minimum length",
+        "EMAIL": "The field '{{field}}' does not have a valid email format"
+    },
+
+    "PLACEHOLDERS": {
+        "USERNAME": "Username",
+        "NOMBRE": "Name",
+        "APELLIDO1": "Surname",
+        "APELLIDO2": "Second Surname",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "PASSWORD2": "Repeat Password",
+        "CATEGORY_NAME_ES": "Category Name (ES)",
+        "CATEGORY_DESCRIPTION_ES": "Category Description (ES)",
+        "CATEGORY_NAME_EN": "Category Name (EN)",
+        "CATEGORY_DESCRIPTION_EN": "Category Description (EN)",
+        "SUBCATEGORY_NAME_ES": "Subcategory Name (ES)",
+        "SUBCATEGORY_DESCRIPTION_ES": "Subcategory Description (ES)",
+        "SUBCATEGORY_NAME_EN": "Subcategory Name (EN)",
+        "SUBCATEGORY_DESCRIPTION_EN": "Subcategory Description (EN)",
+        "AUTHOR": "Author",
+        "ISBN": "ISBN",
+        "PRICE": "Price",
+        "PUBLISHER": "Publisher",
+        "LANGUAGE": "Language",
+        "SELECT-SUBCATEGORY": "Select Subcategory",
+        "TITLE_ES": "Title (ES)",
+        "DESCRIPTION_ES": "Description (ES)",
+        "TITLE_EN": "Title (EN)",
+        "DESCRIPTION_EN": "Description (EN)"
+
+        
+    },
+
+    "NOTIFICATIONS": {
+        "USERNAME_REQUIRED": "Please enter a username",
+        "EMAIL_REQUIRED": "Please enter an email",
+        "USERNAME_EXISTS": "This username already exists",
+        "EMAIL_EXISTS": "The email is already registered",
+        "TERMS_NOT_ACCEPTED": "You must accept the terms and conditions",
+        "REGISTER_SUCCESS": "User registered successfully",
+        "REGISTER_ERROR": "Error registering user",
+        "USERNAME_CHECK_ERROR": "Error checking username availability",
+        "EMAIL_CHECK_ERROR": "Error checking email availability",
+        "PASSWORDS_NOT_MATCH": "Passwords do not match.",
+        "RESET_SUCCESS": "The password has been successfully changed, this window will close in a few seconds.",
+        "RESET_ERROR": "Failed to change password, please contact the administrator.",
+        "PROFILE_UPDATED": "Profile updated successfully.",
+        "PASSWORD_INCORRECT": "The password is incorrect.",
+        "PASSWORD_REQUIRED": "You must enter your password to update your profile.",
+        "PASSWORD_UPDATED": "Password updated successfully.",
+        "ACCOUNT_DELETED": "Account deleted successfully.",
+        "AUTHENTICATION_ERROR": "Authentication error",
+        "LOGIN_SUCCESS": "Login successful",
+        "LOGIN_FAILED": "Login failed",
+        "INVALID_AUTH_PARAMETERS": "Invalid authentication parameters",
+
+        "LOGIN_ERROR": {
+            "TOO_MANY_ATTEMPTS": "Too many attempts. Please try again later.",
+            "USER_BLOCKED": "The user is blocked. Please contact the administrator.",
+            "USER_INACTIVE": "The user is inactive. Please contact the administrator.",
+            "INVALID_CREDENTIALS": "Invalid credentials",
+            "UNKNOWN_ERROR": "Unknown error",
+            "SESSION_CLOSED": "Session closed",
+            "GOODBYE": "Goodbye!"
+        },
+
+        "LOGS": {
+            "LOAD_ERROR": "Error loading logs",
+            "DELETE_SUCCESS": "Log deleted successfully",
+            "DELETE_ERROR": "Error deleting log",
+            "DELETE_CANCELLED": "Delete operation cancelled",
+            "DELETE_ALL_SUCCESS": "All logs deleted successfully",
+            "DELETE_ALL_ERROR": "Error deleting all logs"
+        },
+
+        "CONFIRM": {
+            "DELETE_LOG": "Are you sure you want to delete this log?",
+            "DELETE_ALL_LOGS": "Are you sure you want to delete all logs?",
+            "HEADER": "Delete Confirmation",
+            "ICON": "pi pi-info-circle",
+            "DELETE_BOOK": "Are you sure you want to delete the book \"{{title}}\"?",
+            "DELETE_SELECTED_BOOKS": "Are you sure you want to delete the selected books: {{titles}}?",
+            "DELETE_CATEGORY": "Are you sure you want to delete the category \"{{name}}\" and all its subcategories?",
+            "DELETE_SELECTED_CATEGORIES": "Are you sure you want to delete the selected categories: {{names}}?",
+            "DELETE_SUBCATEGORY": "Are you sure you want to delete the subcategory \"{{name}}\"?",
+            "DELETE_SELECTED_SUBCATEGORIES": "Are you sure you want to delete the selected subcategories: {{names}}?"
+        },
+
+        "BOOK_FORM": {
+            "ISBN_REQUIRED": "ISBN is required",
+            "AUTHOR_REQUIRED": "Author is required",
+            "PRICE_REQUIRED": "Price is required",
+            "PUBLISHER_REQUIRED": "Publisher is required",
+            "LANGUAGE_REQUIRED": "Language is required",
+            "SUBCATEGORY_REQUIRED": "Subcategory is required",
+            "TITLE_ES_REQUIRED": "Title in Spanish is required",
+            "DESC_ES_REQUIRED": "Description in Spanish is required",
+            "TITLE_EN_REQUIRED": "Title in English is required",
+            "DESC_EN_REQUIRED": "Description in English is required",
+            "IMAGE_REQUIRED": "Image is required",
+            "FILL_REQUIRED_FIELDS": "Please fill all required fields",
+            "BOOK_SAVED_SUCCESS": "Book saved successfully",
+            "BOOK_SAVE_FAILED": "Failed to save book",
+            "BOOK_UPDATED_SUCCESS": "Book updated successfully",
+            "BOOK_UPDATE_FAILED": "Failed to update book"
+        },
+
+        "BOOK": {
+            "USER_DATA_ERROR": "Error retrieving user data",
+            "USER_RATING_ERROR": "Error retrieving user rating",
+            "SUBMIT_RATING_SUCCESS": "Rating submitted successfully",
+            "SUBMIT_RATING_ERROR": "Error submitting rating",
+            "INVALID_RATING": "Invalid rating",
+            "LOGIN_TO_RATE": "Log in to rate the book"
+        },
+
+        "BOOK_LIST": {
+            "DELETE_SUCCESS": "Book deleted successfully",
+            "DELETE_ERROR": "Error deleting book",
+            "DELETE_CANCELLED": "Delete operation cancelled",
+            "EXPORT_ERROR": "Error exporting books",
+            "EXPORT_SUCCESS": "Books exported successfully"
+        },
+
+        "CATEGORY_LIST": {
+            "DELETE_SUCCESS": "Category deleted successfully",
+            "DELETE_ERROR": "Error deleting category",
+            "DELETE_CANCELLED": "Delete operation cancelled",
+            "SUBCATEGORY_DELETE_SUCCESS": "Subcategory deleted successfully",
+            "SUBCATEGORY_DELETE_ERROR": "Error deleting subcategory",
+            "EXPORT_SUCCESS": "Categories exported successfully",
+            "EXPORT_ERROR": "Error exporting categories"
+        },
+
+        "CATEGORY_FORM": {
+            "SAVE_SUCCESS": "Category saved successfully",
+            "SAVE_ERROR": "Failed to save category",
+            "UPDATE_SUCCESS": "Category updated successfully",
+            "UPDATE_ERROR": "Failed to update category",
+            "FIELD_REQUIRED": "Please fill all required fields"
+        },
+
+        "COMMENT_FORM": {
+            "COMMENT_SENT": "Comment sent",
+            "LOGIN_REQUIRED": "You must log in to comment"
+        },
+
+        "COMMENT_ITEM": {
+            "COMMENT_DELETED": "Comment deleted",
+            "DELETE_ERROR": "Error deleting the comment",
+            "REPLY_SENT": "Comment sent",
+            "LOGIN_REQUIRED": "You must be logged in to comment"
+        },
+
+        "FORGOT_PASSWORD": {
+            "EMAIL_REQUIRED": "Please enter your email",
+            "LINK_SENT_SUCCESS": "The reset link has been sent successfully. You will be redirected to the login page in a few seconds.",
+            "LINK_SENT_ERROR": "Unable to send the reset link. Please contact the administrator.",
+            "EMAIL_NOT_EXISTS": "The entered email does not exist. Please check and try again.",
+            "RESET_LINK_ERROR": "Error sending the reset link. Please try again later."
+        },
+
+       "SUBCATEGORY_FORM": {
+            "MODAL_TITLE": "Subcategory Form",
+            "MODAL_WARNING": "Warning: This action is irreversible. All your data will be permanently deleted and cannot be recovered.",
+            "PASSWORD_LABEL": "Password",
+            "PASSWORD_PLACEHOLDER": "Enter your password...",
+            "CANCEL_BUTTON": "Cancel",
+            "SAVE_BUTTON": "Save",
+            "UPDATE_BUTTON": "Update",
+            "SUCCESS_SAVE_MESSAGE": "Subcategory saved successfully",
+            "ERROR_SAVE_MESSAGE": "Failed to save subcategory",
+            "SUCCESS_UPDATE_MESSAGE": "Subcategory updated successfully",
+            "ERROR_UPDATE_MESSAGE": "Failed to update subcategory",
+            "LOAD_TRANSLATIONS_ERROR": "Failed to load subcategory translations",
+            "LOAD_CATEGORIES_ERROR": "Failed to load categories",
+            "FAILED_LOAD_TRANSLATIONS": "Failed to load subcategory translations",
+            "SUBCATEGORY_SAVED_SUCCESSFULLY": "Subcategory saved successfully",
+            "FAILED_SAVE_SUBCATEGORY": "Failed to save subcategory",
+            "SUBCATEGORY_UPDATED_SUCCESSFULLY": "Subcategory updated successfully",
+            "FAILED_UPDATE_SUBCATEGORY": "Failed to update subcategory"
+        },
+
+        "USER_FORM": {
+            "FILL_REQUIRED_FIELDS": "Please fill all required fields",
+            "USER_CREATED_SUCCESSFULLY": "User created successfully",
+            "FAILED_CREATE_USER": "Failed to create user",
+            "USER": "User",
+            "ADMIN": "Admin"
+        },
+
+        "USERS_LIST": {
+            "ACTIVE": "Active",
+            "BLOCKED": "Blocked",
+            "EMAIL": "Email",
+            "INACTIVE": "Inactive",
+            "NAME": "Name",
+            "ROLES": "Roles",
+            "SECOND-SURNAME": "Second Surname",
+            "SURNAME": "Surname",
+            "USERNAME": "Username",
+            "USER_UPDATED": "User updated",
+            "ERROR_UPDATING_USER": "Error updating user",
+            "DELETE_CONFIRMATION": "Delete Confirmation",
+            "DELETE_CANCELLED": "Delete Cancelled",
+            "DELETE_CONFIRMATION_MESSAGE": "Are you sure you want to delete the user '{{username}}'?",
+            "DELETE_SELECTED_CONFIRMATION_MESSAGE": "Are you sure you want to delete the selected users '{{selectedUserNames}}'?",
+            "ERROR_DELETING_USER": "Error deleting user",
+            "USER_DELETED": "User deleted"
+        }
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    },
+
+   
+
+    "DELETE_ACCOUNT": {
+        "MODAL_TITLE": "Delete Account",
+        "MODAL_WARNING": "Warning: This action is irreversible. All your data will be permanently deleted and cannot be recovered.",
+        "PASSWORD_LABEL": "Password",
+        "PASSWORD_PLACEHOLDER": "Enter your password...",
+        "CANCEL_BUTTON": "Cancel",
+        "DELETE_BUTTON": "Delete"
+    },
+
+    "STATUS": {
+        "ALL": "All",
+        "SUCCESS": "Success",
+        "WARNING": "Warning",
+        "ERROR": "Error",
+        "INFO": "Info"
+    },
+
+    "ROUTES": {
+        "LOGIN": "Login",
+        "LOGIN_CALLBACK": "Login Callback",
+        "REGISTER": "Register",
+        "FORGOT_PASSWORD": "Forgot Password",
+        "RESET_PASSWORD": "Reset Password",
+        "PROFILE": "Profile",
+        "HOME": "Home",
+        "UNAUTHORIZED": "Unauthorized",
+        "NOT_FOUND": "Not Found",
+        "SERVER_ERROR": "Server Error",
+        "BAD_REQUEST": "Bad Request",
+        "FORBIDDEN": "Forbidden",
+        "BOOK_DETAILS": "Book Details",
+        "SUBCATEGORY": "Subcategory",
+        "CATEGORIES": "Categories",
+        "BOOKS": "Books",
+        "ADMIN_MANAGEMENT": "Admin Management",
+        "ADMIN_DASHBOARD": "Admin Dashboard"
+    },
+      
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    "primeng": {
+        "startsWith": "Starts with",
+        "contains": "Contains",
+        "notContains": "Not contains",
+        "endsWith": "Ends with",
+        "equals": "Equals",
+        "notEquals": "Not equals",
+        "noFilter": "No Filter",
+        "lt": "Less than",
+        "lte": "Less than or equal to",
+        "gt": "Greater than",
+        "gte": "Greater than or equal to",
+        "is": "Is",
+        "isNot": "Is not",
+        "before": "Before",
+        "after": "After",
+        "dateIs": "Date is",
+        "dateIsNot": "Date is not",
+        "dateBefore": "Date is before",
+        "dateAfter": "Date is after",
+        "clear": "Clear",
+        "apply": "Apply",
+        "matchAll": "Match All",
+        "matchAny": "Match Any",
+        "addRule": "Add Rule",
+        "removeRule": "Remove Rule",
+        "accept": "Yes",
+        "reject": "No",
+        "choose": "Choose",
+        "upload": "Upload",
+        "cancel": "Cancel",
+        "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "dayNamesMin": ["Su","Mo","Tu","We","Th","Fr","Sa"],
+        "monthNames": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+        "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "dateFormat": "mm/dd/yy",
+        "firstDayOfWeek": 0,
+        "today": "Today",
+        "weekHeader": "Wk",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong",
+        "passwordPrompt": "Enter a password",
+        "emptyMessage": "No results found",
+        "emptyFilterMessage": "No results found"
+    },
+
+    "in total there are": "In total there are",
+    "users.": "users.",
+    "SHOWING": "Showing",
+    "TO": "to",
+    "RESULTS": "results",
+    "CLEAR-ALL": "Clear All"
+}

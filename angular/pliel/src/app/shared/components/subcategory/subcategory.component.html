@@ -1,0 +1,18 @@
+<div *ngIf="isLoading" class="flex justify-center items-center min-h-screen">
+    <app-main-loader></app-main-loader>
+</div>
+
+<!-- Subcategoría -->
+<div *ngIf="!isLoading" class="px-4 py-5 sm:p-6">
+    <h2 class="text-2xl font-semibold text-center text-[#65475c] mb-6">{{ subcategory?.name }}</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div *ngFor="let book of books" class="bg-[#c8adc0] rounded-lg shadow overflow-hidden">
+            <a [routerLink]="['/book', book.id]" class="flex flex-col items-center p-4 text-center">
+                <img [src]="book.image" alt="{{ book.title }}" class="w-full h-48 object-cover">
+                <h3 class="text-lg font-bold text-[#7b5c72] mt-2">{{ book.title }}</h3>
+                <p class="text-[#af92a7] text-sm font-bold">{{ book.author }}</p>
+            </a>
+            <p class="text-[#7b5c72] text-sm px-4 py-2" [innerHTML]="book?.desc?.slice(0, 200) + '...'"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+<div *ngIf="isLoading">
+    <app-main-loader></app-main-loader>
+</div>
+
+<div *ngIf="!isLoading"
+    class="profile-container flex flex-col md:flex-row w-full mx-auto items-center h-auto md:h-[100vh]">
+    <div
+        class="mx-auto w-full md:w-9/12 h-auto md:h-[90vh] flex flex-col md:flex-row items-center rounded-lg shadow-md bg-white">
+        
+        <!-- Tabs de perfil -->
+        <div
+            class="sidebar w-full md:w-1/12 bg-[#AF92A7] p-5 h-auto md:h-full flex md:flex-col justify-center rounded-tl-lg rounded-bl-lg">
+            <ul class="nav-list list-none p-0 m-0 flex md:flex-col justify-around">
+                <li class="nav-item flex items-center py-2 px-2 cursor-pointer text-white transition-all duration-300 rounded-lg"
+                    [class.bg-[#7B5C72]]="selectedTab === 'profile'" (click)="selectedTab = 'profile'">
+                    <i class="fas fa-user mr-2"></i>
+                    <span>{{ 'PROFILE' | translate }}</span>
+                </li>
+                <li class="nav-item flex items-center py-2 px-2 cursor-pointer text-white transition-all duration-300 rounded-lg"
+                    [class.bg-[#7B5C72]]="selectedTab === 'password'" (click)="selectedTab = 'password'">
+                    <i class="fas fa-lock mr-2"></i>
+                    <span>{{ 'CHANGE-PASSWORD' | translate }}</span>
+                </li>
+                <li class="nav-item flex items-center py-2 px-2 cursor-pointer text-white transition-all duration-300 rounded-lg"
+                    [class.bg-[#7B5C72]]="selectedTab === 'delete'" (click)="selectedTab = 'delete'">
+                    <i class="fas fa-trash mr-2"></i>
+                    <span>{{ 'DELETE-ACCOUNT' | translate }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content w-full md:w-11/12 flex justify-center items-center p-5 h-auto md:h-full">
+            <div class="content-inner w-full max-w-2xl">
+
+                <!-- Perfil -->
+                <div *ngIf="selectedTab === 'profile'" class="fade-in">
+                    <h1 class="profile-header text-[#AF92A7] mb-5">{{ 'PROFILE-SETTINGS' | translate }}</h1>
+                    <div class="profile-picture flex flex-col items-center mb-5">
+                        <img [src]="user?.foto || 'default-profile.png'" alt="User Picture" (click)="openImageModal()"
+                            class="user-img w-24 h-24 rounded-full mb-2">
+                        <div class="edit-options flex items-center mb-2">
+                            <label class="toggle-switch relative inline-block w-10 h-6 mr-2">
+                                <input type="checkbox" id="fotoToggle" [(ngModel)]="useFile" class="opacity-0 w-0 h-0">
+                                <span
+                                    class="slider round absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition-all duration-300"></span>
+                            </label>
+                            <span class="toggle-text text-[#7B5C72]">{{ (useFile ? 'UPLOAD-IMAGE' : 'USE-IMAGE-URL') | translate }}</span>
+                        </div>
+                    </div>
+
+                    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" class="form flex flex-col">
+                        <div *ngIf="useFile" class="file-input w-full mt-2 fade-in">
+                            <div class="input-group relative flex items-center mb-4">
+                                <i class="fas fa-file user-icon absolute left-3 text-[#AF92A7]"></i>
+                                <label for="foto"
+                                    class="custom-file-upload w-full pl-10 p-2 border border-gray-300 rounded-lg cursor-pointer">
+                                    <input id="foto" type="file" (change)="onFileSelected($event)" class="hidden">
+                                    <span class="w-full text-[#AF92A7]" *ngIf="!fotoFileName">{{ 'UPLOAD-IMAGE' | translate }}</span>
+                                    <span class="w-full text-[#7B5C72]" *ngIf="fotoFileName" >{{ 'IMAGE-UPLOADED' | translate }}: {{ fotoFileName }}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div *ngIf="!useFile" class="url-input w-full mt-2 fade-in">
+                            <div class="input-group relative flex items-center mb-4">
+                                <i class="fas fa-link user-icon absolute left-3 text-[#AF92A7]"></i>
+                                <input id="fotoUrl" formControlName="fotoUrl" [placeholder]="'FOTO-URL' | translate"
+                                    class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                            </div>
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-user user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="username" formControlName="username" [placeholder]="'USERNAME' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-envelope user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="email" formControlName="email" type="email" [placeholder]="'EMAIL' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-signature user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="nombre" formControlName="nombre" [placeholder]="'NAME' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-signature user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="apellido1" formControlName="apellido1" [placeholder]="'SURNAME' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-signature user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="apellido2" formControlName="apellido2" [placeholder]="'SECOND-SURNAME' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4 password-input-container">
+                            <i class="fas fa-lock key-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="password" formControlName="password" type="password"
+                                [placeholder]="'ENTER-YOUR-PASSWORD' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-l-lg custom-focus password-input">
+                            <button type="submit"
+                                class="google bg-[#AF92A7] text-white p-2 rounded-r-lg hover:bg-[#7B5C72] transition-all duration-300 submit-button">{{ 'UPDATE-PROFILE' | translate }}</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Cambiar contraseña -->
+                <div *ngIf="selectedTab === 'password'" class="fade-in">
+                    <h2 class="profile-header text-[#AF92A7] mb-5">{{ 'CHANGE-PASSWORD' | translate }}</h2>
+                    <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" class="form flex flex-col">
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-lock key-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="currentPassword" formControlName="currentPassword" type="password"
+                                [placeholder]="'CURRENT-PASSWORD' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-lock-open key-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="newPassword" formControlName="newPassword" type="password"
+                                [placeholder]="'NEW-PASSWORD' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-lock-open key-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="newPasswordConfirmation" formControlName="newPasswordConfirmation"
+                                type="password" [placeholder]="'CONFIRM-NEW-PASSWORD' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+                        <a href="/forgot-password" class="forgot-password underline italic text-[#7B5C72] mb-4">{{ 'FORGOT-YOUR-PASSWORD' | translate }}</a>
+                        <button type="submit"
+                            class="google bg-[#AF92A7] text-white p-2 rounded-lg mt-4 hover:bg-[#7B5C72] transition-all duration-300">{{ 'CHANGE-PASSWORD' | translate }}</button>
+                    </form>
+                </div>
+
+                <!-- Eliminar cuenta -->
+                <div *ngIf="selectedTab === 'delete'" class="fade-in text-center">
+                    <button (click)="deleteAccount()"
+                        class="delete-button bg-red-500 text-white p-2 rounded-lg hover:bg-red-400 transition-all duration-300 uppercase font-bold">{{ 'DELETE-ACCOUNT' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

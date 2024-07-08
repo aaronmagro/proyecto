@@ -1,0 +1,115 @@
+<!-- Sección principal de la página de inicio, donde se muestra información sobre mi y mis libros -->
+<div class="portfolio-container">
+    <div class="author-info">
+        <div class="author-top">
+            <div class="author-image-container">
+                <img src="../../../assets/images/me/yo.png" alt="Aaron's Image" class="author-image">
+            </div>
+            <div class="author-details">
+                <h1 class="text-[#65475C] font-bold">Aarón Magro Maldonado</h1>
+                <p>{{'PPAL1' | translate}}</p>
+            </div>
+        </div>
+        <div class="author-bottom">
+            <p>{{'PPAL2' | translate}}</p>
+            <p>{{'PPAL3' | translate}}</p>
+            <div class="social-links">
+                <a href="https://x.com/eReNSiTo_" target="_blank" title="Twitter"><fa-icon [icon]="['fab', 'twitter']"></fa-icon></a>
+                <a href="https://www.instagram.com/aaronm.m/" target="_blank" title="Instagram"><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a>
+                <a href="https://www.goodreads.com/user/show/178873301-aar-n-magro" target="_blank" title="GoodReads"><fa-icon [icon]="['fab', 'goodreads']"></fa-icon></a>
+            </div>
+            <a href="mailto:contact@pliel.es?subject=CONTACTO" target="_blank">
+                <button class="contact-button">{{'CONTACT-ME' | translate}}</button>
+            </a>
+        </div>
+    </div>
+    <button id="navigate-button" (click)="scrollToGallery()">
+        <span class="arrow">🡫 {{'MY-BOOKS' | translate}} 🡫</span>
+    </button>
+</div>
+
+<!-- Componente de la galería de libros modificada para mostrar los libros de "Aaron" -->
+<div class="books-gallery-container" #booksGalleryContainer>
+    <div class="component">
+        <ul class="align">
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" [(ngModel)]="searchTerm" [placeholder]="'SEARCH-BOOKS-PLACEHOLDER' | translate"
+                        (input)="filterBooks()" class="search-input">
+                    <button class="toggle-filters" (click)="toggleFilters()">
+                        <fa-icon [icon]="filtersVisible ? 'chevron-up' : 'chevron-down'"></fa-icon>
+                    </button>
+                </div>
+                <div class="filters" [ngClass]="{'visible': filtersVisible}">
+                    <div class="filter-group">
+                        <label class="uppercase">{{ 'FILTER-BY-ISBN' | translate }}</label>
+                        <input type="text" [(ngModel)]="isbnFilter"
+                            [placeholder]="'FILTER-BY-ISBN-PLACEHOLDER' | translate" (input)="filterBooks()"
+                            class="filter-input">
+                    </div>
+                    <div class="filter-group">
+                        <label class="uppercase">{{ 'SORT-BY' | translate }}</label>
+                        <select (change)="onSortChange($event)" class="filter-select">
+                            <option value="bestRated" selected>{{ 'BEST-RATED' | translate }}</option>
+                            <option value="worstRated">{{ 'WORST-RATED' | translate }}</option>
+                            <option value="mostComments">{{ 'MOST-COMMENTS' | translate }}</option>
+                            <option value="leastComments">{{ 'LEAST-COMMENTS' | translate }}</option>
+                        </select>
+                    </div>
+                    <div class="category-container">
+                        <a href="/categories">{{ 'ALL-CATEGORIES' | translate }}</a>
+                    </div>
+                </div>
+            </div>
+            <li *ngFor="let book of paginatedBooks">
+                <figure class='book'>
+                    <ul class='hardcover_front' [routerLink]="['/book', book.id]">
+                        <li>
+                            <div class="coverDesign blue" [style.background-image]="'url(' + book.image + ')'"
+                                style="background-size: cover;"></div>
+                            <span class="ribbon new">AARON</span>
+                        </li>
+                        <li></li>
+                    </ul>
+                    <ul class='page' [routerLink]="['/book', book.id]">
+                        <li></li>
+                        <li>
+                            <a class="btn" [routerLink]="['/book', book.id]">{{ 'LOOK-THE-BOOK' | translate }}</a>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class='hardcover_back' [routerLink]="['/book', book.id]">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class='book_spine' [routerLink]="['/book', book.id]">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <figcaption>
+                        <h1>{{ book.title }}</h1>
+                        <fa-icon *ngFor="let star of getStars(book.average_rating)"
+                            [icon]="star === 'full' ? 'star' : star === 'half' ? 'star-half-alt' : 'star'"
+                            [ngClass]="{'empty-star': star === 'empty'}"></fa-icon>
+                        <p [innerHTML]="truncateDescription(book.desc)"></p>
+                    </figcaption>
+                </figure>
+            </li>
+            <div class="pagination" *ngIf="totalBooks > itemsPerPage">
+                <button (click)="updatePage(currentPage - 1)" [disabled]="currentPage === 1">
+                    <fa-icon icon="angles-left" class="pagination_icon"></fa-icon>
+                    <span>{{ 'PREVIOUS' | translate }}</span>
+                </button>
+                <span>{{ 'PAGE' | translate }} {{ currentPage }} {{ 'OF' | translate }} {{ Math.ceil(totalBooks /
+                    itemsPerPage) }}</span>
+                <button (click)="updatePage(currentPage + 1)"
+                    [disabled]="currentPage === Math.ceil(totalBooks / itemsPerPage)">
+                    <span>{{ 'NEXT' | translate }}</span>
+                    <fa-icon icon="angles-right" class="pagination_icon"></fa-icon>
+                </button>
+            </div>
+        </ul>
+    </div>
+</div>

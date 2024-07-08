@@ -1,0 +1,29 @@
+<div *ngIf="isLoading" class="flex justify-center items-center h-screen">
+    <app-main-loader></app-main-loader>
+</div>
+
+<!-- Categorías -->
+<div id="categories" *ngIf="!isLoading">
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input type="text" (keyup)="filterCategories($event)" [placeholder]="'SEARCH-CATEGORIES-PLACEHOLDER' | translate" class="search-input">
+    </div>
+
+    <!-- Categorías -->
+    <div class="categories-container">
+        <ng-container *ngFor="let category of filteredCategories">
+            <div *ngIf="getSubcategories(category.id).length > 0" class="category-column"
+                 [class.expanded]="category.id === expandedCategoryId" 
+                 (click)="toggleCategory(category.id, $event)">
+                <div class="category-title">
+                    {{ category.name }}
+                </div>
+                <ul class="subcategory-list" [class.expanded]="category.id === expandedCategoryId">
+                    <li *ngFor="let subcategory of getSubcategories(category.id)" [routerLink]="['/subcategory', subcategory.id]">
+                        <span>{{ subcategory.name }}</span>
+                    </li>
+                </ul>
+            </div>
+        </ng-container>
+    </div>
+</div>

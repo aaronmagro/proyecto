@@ -1,0 +1,28 @@
+$background: #EED6E7;
+$font-color: #7B5C72;
+$font-color-sub: #AF92A7;
+$bg-color: #fff;
+$main-color: #AF92A7;
+$accent-color: #F2C9DE;
+$button-hover-color: #7b5c72;
+$button-shadow: 4px 4px $main-color;
+
+button {
+  background-color: $bg-color;
+  color: $font-color;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0.5rem 1.4rem;
+  border: 2px solid $main-color;
+  border-radius: 5px;
+  box-shadow: $button-shadow;
+  margin-right: 0.5rem;
+  transition: all 250ms;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background-color: $button-hover-color;
+    color: $bg-color;
+    box-shadow: 4px 8px 19px -3px #65475c;
+  }
+}

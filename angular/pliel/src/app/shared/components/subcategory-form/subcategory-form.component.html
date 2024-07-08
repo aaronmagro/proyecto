@@ -1,0 +1,67 @@
+<div id="subcategory"
+    class="profile-container flex flex-col md:flex-row w-full mx-auto items-center h-auto md:h-[100vh]">
+    <div class="mx-auto w-full md:w-9/12 h-auto md:h-[90vh] flex flex-col md:flex-row items-center rounded-lg shadow-xl bg-white border border-gray-300">
+        <!-- Tab de subcategoría -->
+        <div class="sidebar w-full md:w-1/12 bg-[#65475c] p-5 h-auto md:h-full flex md:flex-col justify-center rounded-tl-lg rounded-bl-lg">
+            <ul class="nav-list list-none p-0 m-0 flex md:flex-col justify-around">
+                <li class="nav-item flex items-center py-2 px-2 cursor-pointer text-white transition-all duration-300 rounded-lg"
+                    [class.bg-[#7B5C72]]="selectedTab === 'subcategory'" (click)="selectedTab = 'subcategory'">
+                    <i class="fas fa-tag mr-2"></i>
+                    <span>{{ 'SUBCATEGORY' | translate }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content w-full md:w-11/12 flex justify-center items-center p-5 h-auto md:h-full overflow-auto">
+            <div class="content-inner w-full max-w-2xl">
+
+                <!-- Contenido de subcategoría -->
+                <div *ngIf="selectedTab === 'subcategory'" class="fade-in">
+                    <form [formGroup]="subcategoryForm" (ngSubmit)="subcategory ? updateSubcategory() : saveSubcategory()" class="form flex flex-col">
+                        <div class="input-group relative flex items-center mb-4">
+                            <p-dropdown [options]="filteredCategories" [(ngModel)]="selectedCategory"
+                                optionLabel="name" [filter]="true" filterBy="name" [showClear]="true"
+                                [placeholder]="'SELECT-CATEGORY'|translate" (onFilter)="filterCategories()" formControlName="category_id">
+                                <ng-template let-category pTemplate="item">
+                                    <div class="flex items-center gap-2">
+                                        <div>{{ category.name }}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-tag user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="name_es" formControlName="name_es" [placeholder]="'PLACEHOLDERS.SUBCATEGORY_NAME_ES' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-align-left user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <angular-editor formControlName="desc_es" [config]="editorConfig" [placeholder]="'PLACEHOLDERS.SUBCATEGORY_DESCRIPTION_ES' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus"></angular-editor>
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-tag user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="name_en" formControlName="name_en" [placeholder]="'PLACEHOLDERS.SUBCATEGORY_NAME_EN' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-align-left user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <angular-editor formControlName="desc_en" [config]="editorConfig" [placeholder]="'PLACEHOLDERS.SUBCATEGORY_DESCRIPTION_EN' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus"></angular-editor>
+                        </div>
+                        
+                        <div class="flex justify-center items-center mt-5">
+                            <button type="submit" class="btn btn-primary w-full">
+                                {{ (subcategory ? 'UPDATE-SUBCATEGORY' : 'CREATE-SUBCATEGORY') | translate }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

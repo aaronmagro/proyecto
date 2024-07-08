@@ -1,0 +1,80 @@
+<div class="flex justify-center items-center h-screen">
+    <form [formGroup]="formulario" (ngSubmit)="register()" class="form">  
+         <!-- LOGO -->
+        <div class="flex justify-center items-center">
+            <img src="assets/images/logo.png" alt="logo" class="w-auto h-auto rounded-full mx-auto">
+        </div>
+        
+        <!-- USUARIO -->
+        <div class="input-group mb-1 relative">
+            <i class="fa-solid fa-user key-icon"></i>
+            <input formControlName="username" [placeholder]=" 'USERNAME' | translate "
+            class="form-control input-lg w-full rounded-md">
+        </div>
+        
+        <!-- NOMBRE -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-signature key-icon"></i>
+            <input formControlName="nombre" [placeholder]=" 'NAME' | translate "
+            class="form-control input-lg w-full rounded-md">
+        </div>
+
+        <!-- APELLIDO -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-signature key-icon"></i>
+            <input formControlName="apellido1" [placeholder]=" 'SURNAME' | translate "
+            class="form-control input-lg w-full rounded-md">
+        </div>
+        
+        <!-- SEGUNDO APELLIDO -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-signature key-icon"></i>
+            <input formControlName="apellido2" [placeholder]=" 'SECOND-SURNAME' | translate "
+            class="form-control input-lg w-full rounded-md">
+        </div>
+
+        <!-- EMAIL -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-envelope key-icon"></i>
+            <input formControlName="email" [placeholder]=" 'EMAIL' | translate "
+            class="form-control input-lg w-full rounded-md">
+        </div>
+        
+        <!-- CONTRASEÑA -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-key key-icon"></i>
+            <input type="password" id="password" formControlName="password" [placeholder]=" 'PASSWORD' | translate "
+            class="form-control input-lg w-full rounded-md">
+            <i id="password-icon" class="fa-solid fa-eye eye-icon" onclick="togglePasswordVisibility('password', 'password-icon')"></i>
+        </div>
+        
+        <!-- REPETIR CONTRASEÑA -->
+        <div  class="input-group mb-1 relative">
+            <i class="fa-solid fa-key key-icon"></i>
+            <input type="password" id="password2" formControlName="password2" [placeholder]=" 'REPEAT-PASSWORD' | translate "
+            class="form-control input-lg w-full rounded-md">
+            <i id="password-icon2" class="fa-solid fa-eye eye-icon" onclick="togglePasswordVisibility('password2', 'password-icon2')"></i>
+        </div>
+
+        <!-- TÉRMINOS Y CONDICIONES -->
+        <div class="input-group mb-2 flex justify-center col-span-2 w-full">
+            <label class="container">
+                <input type="checkbox" id="link-checkbox" value="">
+                <svg viewBox="0 0 64 64" height="1.45em" width="1.45em">
+                  <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+                </svg>
+            </label>
+            <p class="link-checkbox" class="ms-2 text-sm font-medium texto"> {{ 'ACCEPT-TERMS' | translate }}  <a (click)="openModal()" class="italic text-sm underline mb-1 transition olvidar"> {{ 'TERMS-AND-CONDITIONS' | translate }}</a>.</p>
+        </div>
+
+        <!-- BOTÓN DE REGISTRO -->
+        <div class="input-group flex justify-center col-span-2 w-full">
+            <app-button-complex type="submit" [buttonText]=" 'CREATE-ACCOUNT' | translate "></app-button-complex>
+        </div>
+        
+        <!-- YA TIENES UNA CUENTA -->
+        <div class="mb-3 flex justify-center col-span-2 w-full">
+            <p class="text-sm texto"> {{ 'ALREADY-HAVE-AN-ACCOUNT' | translate }} <a href="/login" class="italic text-sm underline mb-1 transition olvidar"> {{ 'SIGN-IN' | translate }}</a>.</p>
+        </div>
+    </form>
+</div>

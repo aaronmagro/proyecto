@@ -1,0 +1,25 @@
+<div class="container" class="w-full">
+
+    <!-- Menú de tabs -->
+    <div class="tabmenu-wrap">
+        <div class="tab-nav">
+            <span class="nav on"><a href="#tabcon-01">{{'BOOKS'|translate}}</a></span>
+            <span class="nav"><a href="#tabcon-02">{{'CATEGORIES-AND-SUBCATEGORIES'|translate}}</a></span>
+            <span class="nav"><a href="#tabcon-03">{{'USERS'|translate}}</a></span>
+        </div>
+    </div>
+
+    <!-- Componentes de los tabs -->
+    <div class="tab-con">
+        <div id="tabcon-01" class="con-box" style="display: block;">
+            <app-book-list></app-book-list>
+        </div>
+        <div id="tabcon-02" class="con-box">
+          <app-categories-list></app-categories-list>
+        </div>
+        <div id="tabcon-03" class="con-box">
+            <app-users-list></app-users-list>
+        </div>
+    </div>
+
+</div>

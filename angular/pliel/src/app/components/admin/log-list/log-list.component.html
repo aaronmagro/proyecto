@@ -1,0 +1,82 @@
+<div class="log-list">
+  <!-- Parte superior a la tabla -->
+  <div class="toolbar mb-3 flex justify-content-between align-items-center">
+    <h5 class="m-0"><p-button [label]="'CLEAR-ALL'|translate" [outlined]="true" icon="pi pi-filter-slash"
+        (click)="clear(dt1)" /></h5>
+    <button class="btn btn-outline-secondary" (click)="loadLogs()">
+      <i class="pi pi-refresh"></i> {{ 'REFRESH' | translate }}
+    </button>
+    <select class="form-select" [(ngModel)]="selectedStatus">
+      <option *ngFor="let status of statuses" [value]="status.value">{{ status.label }}</option>
+    </select>
+    <div class="card flex justify-content-center">
+      <p-calendar [(ngModel)]="firstDate" [showTime]="true" hourFormat="24" dateFormat="dd/mm/yy"
+        [placeholder]="'PLACEHOLDER-FIRST-DATE' | translate" [showIcon]="true"></p-calendar>
+    </div>
+    <div class="card flex justify-content-center">
+      <p-calendar [(ngModel)]="secondDate" [showTime]="true" hourFormat="24" dateFormat="dd/mm/yy"
+        [placeholder]="'PLACEHOLDER-SECOND-DATE' | translate" [showIcon]="true"></p-calendar>
+    </div>
+    <button class="btn btn-outline-danger" (click)="deleteAllLogs()">
+      <i class="pi pi-times"></i> {{ 'DELETE-ALL-LOGS' | translate }}
+    </button>
+  </div>
+
+  <!-- Tabla de logs -->
+  <p-table #dt1 [value]="filterLogs()" [paginator]="true" [rows]="rows" [sortOrder]="1"
+    [rowsPerPageOptions]="[5,10,20,50]"
+    [currentPageReportTemplate]="('SHOWING'|translate) + ' {first} - {last} ' + ('OF'|translate) + ' {totalRecords} ' + ('RESULTS'|translate)"
+    [showCurrentPageReport]="true">
+    <!-- Cabecera de la tabla -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="action" style="width:20%" class="border border-gray-300">
+          <div class="header-cell flex justify-between items-center">
+            {{ 'ACTION' | translate }}
+            <p-columnFilter type="text" field="action" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width:20%" class="border border-gray-300">{{ 'STATE' | translate }}</th>
+        <th pSortableColumn="ip_address" style="width:20%" class="border border-gray-300">
+          <div class="header-cell flex justify-between items-center">
+            {{ 'IP-ADRESS' | translate}}
+            <p-columnFilter type="text" field="ip_address" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="created_at"
+          style="width:30%; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-color: rgb(212 212 212)">
+          <div class="header-cell flex justify-between items-center">
+            {{ 'CREATED-AT' | translate}}
+            <p-sortIcon field="created_at"></p-sortIcon>
+            <p-columnFilter type="text" field="created_at" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th
+          style="width:30%; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-color: rgb(212 212 212)">
+        </th>
+      </tr>
+    </ng-template>
+
+    <!-- Cuerpo de la tabla -->
+    <ng-template pTemplate="body" let-log>
+      <tr [ngClass]="getLogClass(log)">
+        <td><fa-icon [icon]="getLogIcon(log)"></fa-icon> {{ log.action }}</td>
+        <td>{{ log.status }}</td>
+        <td>{{ log.ip_address }}</td>
+        <td>{{ log.created_at | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+        <td>
+          <button pButton type="button" icon="pi pi-trash" (click)="deleteLog(log.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <!-- Pie de la tabla -->
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        {{ 'in total there are' | translate }} {{ logs ? logs.length : 0 }} {{ 'logs.' | translate }}
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog></p-confirmDialog>

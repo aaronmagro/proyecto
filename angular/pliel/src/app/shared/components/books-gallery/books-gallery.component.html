@@ -1,0 +1,105 @@
+<div *ngIf="isLoading" class="flex justify-center items-center h-screen">
+    <app-main-loader></app-main-loader>
+</div>
+
+<!-- Componente de la galería de libros -->
+<div class="component" *ngIf="!isLoading">
+    <ul class="align">
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" [(ngModel)]="searchTerm" [placeholder]="'SEARCH-BOOKS-PLACEHOLDER' | translate"
+                    (input)="filterBooks()" class="search-input">
+                <button class="toggle-filters" (click)="toggleFilters()">
+                    <fa-icon [icon]="filtersVisible ? 'chevron-up' : 'chevron-down'"></fa-icon>
+                </button>
+            </div>
+
+            <div class="filters" [ngClass]="{'visible': filtersVisible}">
+                <div class="filter-group">
+                    <label class="uppercase">{{ 'FILTER-BY-AUTHOR' | translate }}</label>
+                    <input type="text" [(ngModel)]="authorFilter"
+                        [placeholder]="'FILTER-BY-AUTHOR-PLACEHOLDER' | translate" (input)="filterBooks()"
+                        class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="uppercase">{{ 'FILTER-BY-ISBN' | translate }}</label>
+                    <input type="text" [(ngModel)]="isbnFilter" [placeholder]="'FILTER-BY-ISBN-PLACEHOLDER' | translate"
+                        (input)="filterBooks()" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label class="uppercase">{{ 'SORT-BY' | translate }}</label>
+                    <select (change)="onSortChange($event)" class="filter-select">
+                        <option value="bestRated" selected>{{ 'BEST-RATED' | translate }}</option>
+                        <option value="worstRated">{{ 'WORST-RATED' | translate }}</option>
+                        <option value="mostComments">{{ 'MOST-COMMENTS' | translate }}</option>
+                        <option value="leastComments">{{ 'LEAST-COMMENTS' | translate }}</option>
+                    </select>
+                </div>
+                <div class="category-container">
+                    <a href="/categories">{{ 'ALL-CATEGORIES' | translate }}</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Libros -->
+        <li *ngFor="let book of paginatedBooks">
+            <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front' [routerLink]="['/book', book.id]">
+                    <li>
+                        <div class="coverDesign blue" [style.background-image]="'url(' + book.image + ')'"
+                            style="background-size: cover;">
+                        </div>
+                    </li>
+                    <li></li>
+                </ul>
+                <!-- Páginas -->
+                <ul class='page' [routerLink]="['/book', book.id]">
+                    <li></li>
+                    <li>
+                        <a class="btn" [routerLink]="['/book', book.id]">{{ 'LOOK-THE-BOOK' | translate }}</a>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <!-- Parte de atrás -->
+                <ul class='hardcover_back' [routerLink]="['/book', book.id]">
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class='book_spine' [routerLink]="['/book', book.id]">
+                    <li></li>
+                    <li></li>
+                </ul>
+                <!-- Información -->
+                <figcaption>
+                    <h1>{{ book.title }}</h1>
+                    <fa-icon *ngFor="let star of getStars(book.average_rating)"
+                        [icon]="star === 'full' ? 'star' : star === 'half' ? 'star-half-alt' : 'star'"
+                        [ngClass]="{'empty-star': star === 'empty'}">
+                    </fa-icon>
+                    <span>{{ 'BY' | translate }} {{ book.author }}</span>
+                    <p [innerHTML]="truncateDescription(book.desc)"></p>
+                </figcaption>
+
+            </figure>
+        </li>
+
+        <!-- Paginación -->
+        <div class="pagination" *ngIf="totalBooks > itemsPerPage">
+            <button (click)="updatePage(currentPage - 1)" [disabled]="currentPage === 1">
+                <fa-icon icon="angles-left" class="pagination_icon"></fa-icon>
+                <span>{{ 'PREVIOUS' | translate }}</span>
+            </button>
+            <span>{{ 'PAGE' | translate }} {{ currentPage }} {{ 'OF' | translate }} {{ Math.ceil(totalBooks /
+                itemsPerPage) }}</span>
+            <button (click)="updatePage(currentPage + 1)"
+                [disabled]="currentPage === Math.ceil(totalBooks / itemsPerPage)">
+                <span>{{ 'NEXT' | translate }}</span>
+                <fa-icon icon="angles-right" class="pagination_icon"></fa-icon>
+            </button>
+        </div>
+
+    </ul>
+</div>
