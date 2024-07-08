@@ -1,0 +1,175 @@
+<!-- Toolbar con botones de acción como agregar, eliminar y exportar -->
+<p-toolbar class="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <p-button pRipple severity="success" [label]="'NEW-CATEGORY'|translate" icon="pi pi-plus" class="mr-2"
+            (click)="openNewCategory()"></p-button>
+        <p-button pRipple severity="success" [label]="'NEW-SUBCATEGORY'|translate" icon="pi pi-plus" class="mr-2"
+            (click)="openNewSubcategory()"></p-button>
+        <p-button pRipple severity="danger" [label]="'DELETE-CATEGORIES'|translate" icon="pi pi-trash"
+            (click)="confirmDeleteSelectedCategories()"
+            [disabled]="!selectedCategories || !selectedCategories.length"></p-button>
+        <p-button pRipple severity="danger" [label]="'DELETE-SUBCATEGORIES'|translate" icon="pi pi-trash"
+            (click)="confirmDeleteSelectedSubcategories()"
+            [disabled]="!selectedSubcategories || !selectedSubcategories.length"></p-button>
+    </ng-template>
+    <ng-template pTemplate="right">
+        <p-button pRipple severity="help" [label]="'EXPORT-TO-PDF'|translate" icon="pi pi-upload"
+            (click)="exportCategories()"></p-button>
+    </ng-template>
+</p-toolbar>
+
+<!-- Tabla de categorías y subcategorías -->
+<div class="flex flex-col items-center min-h-screen" id="category">
+    <div class="table-wrapper w-full max-w-[100%] mx-auto p-4 bg-white shadow-md rounded-lg scale-[0.95] mt-10 mb-10 overflow-x-auto"
+        id="category">
+        <!-- Formularios de categoría y subcategoría -->
+        <app-category-form *ngIf="showCategoryForm" [category]="selectedCategory"
+            (formClose)="onCategoryFormClose()"></app-category-form>
+        <app-subcategory-form *ngIf="showSubcategoryForm" [subcategory]="selectedSubcategory"
+            (formClose)="onSubcategoryFormClose()"></app-subcategory-form>
+
+        <!-- Tabla de categorías -->
+        <p-table #dt2 [value]="filteredCategories" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+            [paginator]="true" [globalFilterFields]="['id', 'name', 'desc']" [tableStyle]="{ 'min-width': '50rem' }"
+            [(selection)]="selectedCategories" [rowHover]="true"
+            [currentPageReportTemplate]="('SHOWING'|translate) + ' {first} - {last} ' + ('OF'|translate) + ' {totalRecords} ' + ('RESULTS'|translate)"
+            [showCurrentPageReport]="true" [expandedRowKeys]="expandedRows">
+
+            <!-- Enccoma de la cabecera de la tabla -->
+            <ng-template pTemplate="caption">
+                <div class="flex items-center justify-between w-full">
+                    <h5 class="m-0"><p-button [label]="'CLEAR-ALL'|translate" [outlined]="true"
+                            icon="pi pi-filter-slash" (click)="clear(dt2)" /></h5>
+                    <div class="relative w-64">
+                        <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input pInputText type="text" (input)="applyGlobalFilter($event)"
+                            [placeholder]="('SEARCH'|translate) + '...'"
+                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 w-full" />
+                    </div>
+                </div>
+            </ng-template>
+
+            <!-- Cabecera de la tabla -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 2%;" class="text-center align-middle"><p-tableHeaderCheckbox
+                            class="custom-checkbox"></p-tableHeaderCheckbox></th>
+                    <th style="width: 2%;"></th>
+                    <th pSortableColumn="id" style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ID' | translate }}
+                            <p-sortIcon field="id"></p-sortIcon>
+                            <p-columnFilter type="text" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="name" style="width:20%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'NAME' | translate }}
+                            <p-sortIcon field="name"></p-sortIcon>
+                            <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="desc" style="width:20%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'DESCRIPTION' | translate }}
+                            <p-sortIcon field="desc"></p-sortIcon>
+                            <p-columnFilter type="text" field="desc" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </ng-template>
+
+            <!-- Cuerpo de la tabla -->
+            <ng-template pTemplate="body" let-category let-expanded="expanded">
+                <tr>
+                    <td class="text-center align-middle">
+                        <p-tableCheckbox [value]="category" class="custom-checkbox"></p-tableCheckbox>
+                    </td>
+                    <td *ngIf="getSubcategories(category.id).length > 0">
+                        <p-button type="button" pRipple [pRowToggler]="category" [text]="true" [rounded]="true"
+                            [plain]="true" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" />
+                    </td>
+                    <td *ngIf="getSubcategories(category.id).length === 0"></td>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td [innerHTML]="category.desc"></td>
+                    <td>
+                        <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true"
+                            severity="success" (click)="editCategory(category)"></p-button>
+                        <p-button pRipple icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+                            (click)="confirmDelete(category)"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- Expansión de la fila -->
+            <ng-template pTemplate="rowexpansion" let-category>
+                <tr id="rowexpansion">
+                    <td></td>
+                    <td colspan="6" class="border border-gray-300">
+                        <p-table [value]="getSubcategories(category.id)" dataKey="id"
+                            [(selection)]="selectedSubcategories" [rowHover]="true">
+                            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 4%;" class="text-end align-middle"><p-tableHeaderCheckbox
+                            class="custom-checkbox"></p-tableHeaderCheckbox></th>
+                    <th pSortableColumn="id" style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ID' | translate }}
+                            <p-sortIcon field="id"></p-sortIcon>
+                            <p-columnFilter type="text" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="name" style="width:20%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'NAME' | translate }}
+                            <p-sortIcon field="name"></p-sortIcon>
+                            <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="desc" style="width:20%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'DESCRIPTION' | translate }}
+                            <p-sortIcon field="desc"></p-sortIcon>
+                            <p-columnFilter type="text" field="desc" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </ng-template>
+
+            <!-- Cuerpo de la tabla -->
+            <ng-template pTemplate="body" let-subcategory>
+                <tr>
+                    <td class="text-end align-middle">
+                        <p-tableCheckbox [value]="subcategory" class="custom-checkbox"></p-tableCheckbox>
+                    </td>
+                    <td>{{ subcategory.id }}</td>
+                    <td>{{ subcategory.name }}</td>
+                    <td [innerHTML]="subcategory.desc"></td>
+                    <td>
+                        <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true"
+                            severity="success" (click)="editSubcategory(subcategory)"></p-button>
+                        <p-button pRipple icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+                            (click)="confirmDeleteSubcategory(subcategory)"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        </td>
+        </tr>
+        </ng-template>
+
+        <!-- Pie de la tabla -->
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                {{ 'in total there are' | translate }} {{ categories ? categories.length : 0 }} categories.
+            </div>
+        </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<!-- Diálogo de confirmación de eliminación de categorías -->
+<p-confirmDialog></p-confirmDialog>

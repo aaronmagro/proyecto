@@ -1,0 +1,174 @@
+
+<!-- Toolbat con botones para añadir un nuevo libro, eliminar libros seleccionados y exportar libros a PDF -->
+<p-toolbar class="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <p-button pRipple severity="success" [label]="'NEW'|translate" icon="pi pi-plus" class="mr-2" (click)="openNew()"></p-button>
+        <p-button pRipple severity="danger" [label]="'DELETE-SELECTED'|translate" icon="pi pi-trash" (click)="confirmDeleteSelectedBooks()"
+            [disabled]="!selectedBooks || !selectedBooks.length"></p-button>
+    </ng-template>
+    <ng-template pTemplate="right">
+        <p-button pRipple severity="help" [label]="'EXPORT-TO-PDF'|translate" icon="pi pi-upload" (click)="exportBooks()"></p-button>
+    </ng-template>
+</p-toolbar>
+
+<!-- Tabla de libros con paginación, filtros y opciones de selección -->
+<div class="flex flex-col items-center min-h-screen">
+    <div class="table-wrapper w-full max-w-[100%] mx-auto p-4 bg-white shadow-md rounded-lg scale-[0.95] mt-10 mb-10 overflow-x-auto"
+        id="book">
+
+        <!-- Formulario de edición y creación de libros -->
+        <app-book-form *ngIf="showForm" [book]="selectedBook"
+            (formClose)="onFormClose()"></app-book-form>
+
+        <!-- Tabla de libros -->
+        <p-table #dt1 [value]="filteredBooks" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+            [paginator]="true"
+            [globalFilterFields]="['isbn', 'author', 'price', 'publisher', 'language', 'title', 'desc']"
+            [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedBooks" [rowHover]="true"
+            [currentPageReportTemplate]="('SHOWING'|translate) + ' {first} - {last} ' + ('OF'|translate) + ' {totalRecords} ' + ('RESULTS'|translate)"
+            [showCurrentPageReport]="true">
+
+            <!-- Arriba delabecera de la tabla -->
+            <ng-template pTemplate="caption">
+                <div class="flex items-center justify-between w-full">
+                    <h5 class="m-0"><p-button [label]="'CLEAR-ALL'|translate" [outlined]="true" icon="pi pi-filter-slash"
+                            (click)="clear(dt1)" /></h5>
+                    <div class="relative w-64">
+                        <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input pInputText type="text" (input)="applyGlobalFilter($event)" [placeholder]="('SEARCH'|translate) + '...'"
+                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 w-full" />
+                    </div>
+                </div>
+            </ng-template>
+
+            <!-- Cabecera de la tabla -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 4rem" class="text-center align-middle">
+                        <p-tableHeaderCheckbox class="custom-checkbox"></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="id" style="width:5%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ID' | translate }}
+                            <p-sortIcon field="id"></p-sortIcon>
+                            <p-columnFilter type="text" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="isbn" style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ISBN' | translate }}
+                            <p-sortIcon field="isbn"></p-sortIcon>
+                            <p-columnFilter type="text" field="isbn" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="title" style="width:15%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'TITLE' | translate }}
+                            <p-sortIcon field="title"></p-sortIcon>
+                            <p-columnFilter type="text" field="title" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="author" style="width:15%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'AUTHOR' | translate }}
+                            <p-sortIcon field="author"></p-sortIcon>
+                            <p-columnFilter type="text" field="author" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="price" style="width:7%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'PRICE' | translate }}
+                            <p-sortIcon field="price"></p-sortIcon>
+                            <p-columnFilter type="numeric" field="price" display="menu"
+                                class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="publisher" style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'PUBLISHER' | translate }}
+                            <p-sortIcon field="publisher"></p-sortIcon>
+                            <p-columnFilter type="text" field="publisher" display="menu"
+                                class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="average_rating" style="width:7%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'RATING' | translate }}
+                            <p-sortIcon field="average_rating"></p-sortIcon>
+                            <p-columnFilter type="numeric" field="average_rating" display="menu"
+                                class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th pSortableColumn="language" style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'LANGUAGE' | translate }}
+                            <p-sortIcon field="language"></p-sortIcon>
+                            <p-columnFilter type="text" field="language" display="menu" class="ml-auto">
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-dropdown [options]="languages" [ngModel]="value"
+                                        (onChange)="filter($event.value)" placeholder="Select Language">
+                                        <ng-template let-language pTemplate="item">
+                                            <div class="flex">
+                                                <img [src]="'/assets/flags/books/' + language.value + '.png'"
+                                                    alt="{{ language.value }}" class="flag-icon mx-auto size-12" />
+                                                <span>{{ language.label }}</span>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </ng-template>
+                            </p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="width:6%">
+                        {{ 'IMAGE' | translate }}
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+
+            <!-- Cuerpo de la tabla -->
+            <ng-template pTemplate="body" let-book>
+                <tr>
+                    <td class="text-center align-middle">
+                        <p-tableCheckbox [value]="book" class="custom-checkbox"></p-tableCheckbox>
+                    </td>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}€</td>
+                    <td>{{ book.publisher }}</td>
+                    <td>
+                        <fa-icon *ngFor="let star of getStars(book.average_rating)"
+                            [icon]="star === 'full' ? 'star' : star === 'half' ? 'star-half-alt' : 'star'"
+                            [ngClass]="{'empty-star': star === 'empty'}">
+                        </fa-icon>
+                    </td>
+                    <td class="align-middle center">
+                        <img [src]="'/assets/flags/books/' + book.language + '.png'" alt="{{ book.language }}"
+                            class="flag-icon mx-auto size-9" />
+                    </td>
+                    <td class="align-middle center">
+                        <img [src]="book.image" alt="Book cover" class="cursor-pointer w-7 mx-auto"
+                            (click)="openImageModal(book)" />
+                    </td>
+                    <td>
+                        <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true"
+                            severity="success" (click)="editBook(book)"></p-button>
+                        <p-button pRipple icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+                            (click)="confirmDelete(book)"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- Pie de la tabla -->
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    {{ 'in total there are' | translate }} {{ books ? books.length : 0 }} books.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-confirmDialog></p-confirmDialog>

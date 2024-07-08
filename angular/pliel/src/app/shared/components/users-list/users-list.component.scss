@@ -1,0 +1,41 @@
+.fa {
+    font-size: 1.3rem;
+}
+
+.fa-thumbs-up.text-success {
+  color: rgb(100, 214, 100);
+}
+
+.fa-thumbs-down.text-danger {
+  color: rgb(238, 86, 86);
+}
+
+.fa-lock.text-warning {
+  color: rgb(222, 177, 95);
+}
+
+.fa-unlock.text-primary {
+  color: rgb(109, 198, 243);
+}
+
+.fa-shield-alt.text-danger {
+  color: rgb(227, 227, 102);
+}
+
+.fa-user.text-primary {
+  color: rgb(196, 133, 232);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#user {
+  animation: fadeIn 0.4s ease-in-out;
+}

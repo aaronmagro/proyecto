@@ -1,0 +1,569 @@
+{
+    "SELECT-LANGUAGE": "Seleccionar Idioma",
+    "SPANISH": "Español",
+    "ENGLISH": "Inglés",
+    "MAIN-PAGES": "Páginas Principales",
+    "CATEGORIES": "Categorías",
+    "BOOKS": "Libros",
+    "SEARCH": "Buscar",
+    "SEARCH-BOOKS-PLACEHOLDER": "Buscar libros...",
+    "SEARCH-CATEGORIES-PLACEHOLDER": "Buscar categorías...",
+    "SIGN-IN": "Iniciar Sesión",
+    "SIGN-UP": "Registrarse",
+    "SIGN-OUT": "Cerrar Sesión",
+    "USERNAME": "Nombre de Usuario",
+    "PASSWORD": "Contraseña",
+    "ENTER": "Entrar",
+    "REGISTER": "Registrarse",
+    "CREATE-ACCOUNT": "Crear Cuenta",
+    "SIGN-IN-WITH": "Iniciar Sesión con",
+    "NAME": "Nombre",
+    "SURNAME": "Apellido",
+    "SECOND-SURNAME": "Segundo Apellido",
+    "EMAIL": "Correo Electrónico",
+    "REPEAT-PASSWORD": "Repetir Contraseña",
+    "RESET-PASSWORD": "Restablecer Contraseña",
+    "NEW-PASSWORD": "Nueva Contraseña",
+    "OR": "O",
+    "FORGOT-YOUR-PASSWORD": "¿Olvidaste tu contraseña?",
+    "ALREADY-HAVE-AN-ACCOUNT": "¿Ya tienes una cuenta?",
+    "ACCEPT-TERMS": "Acepto los",
+    "TERMS-AND-CONDITIONS": "Términos y Condiciones",
+    "SEND-LINK": "Enviar Enlace",
+    "CLOSE": "Cerrar",
+    "ACCEPT": "Aceptar",
+    "HOME": "Inicio",
+
+    "ACCEPT-TERMS-MODAL": "Aceptar Términos y Condiciones",
+    "TERMS-1": "Aceptación de los Términos",
+    "TERMS-2": "Registro",
+    "TERMS-3": "Uso Aceptable",
+    "TERMS-4": "Protección de Datos",
+    "TERMS-5": "Cancelación de la Cuenta",
+    "TERMS-6": "Modificaciones",
+    "TERMS-7": "Ley Aplicable y Jurisdicción",
+    "TERMS-8": "Contacto",
+
+    "TERMS-1-TEXT": "Al registrarse en nuestra página web, usted acepta cumplir con estos términos y condiciones, así como con todas las leyes y regulaciones aplicables en España. Si no está de acuerdo con alguno de estos términos, no debe registrarse en este sitio.",
+    "TERMS-2-TEXT": "Para registrarse en nuestra página web, debe proporcionar información precisa, actualizada y completa según lo solicitado en el formulario de registro. Usted es responsable de mantener la confidencialidad de su contraseña y cuenta, y es completamente responsable de todas las actividades que ocurran bajo su cuenta.",
+    "TERMS-3-TEXT": "Usted acepta utilizar nuestra página web únicamente para fines legales y de acuerdo con estos términos y condiciones. Se prohíbe el uso de nuestro sitio web con fines ilegales o no autorizados, incluyendo, pero no limitado a: actividades ilegales, violación de derechos de autor o propiedad intelectual, difamación o acoso.",
+    "TERMS-4-TEXT": "Al registrarse en nuestra página web, usted acepta nuestra política de privacidad y nos autoriza a recopilar, almacenar y procesar sus datos personales de acuerdo con las leyes de protección de datos en España (Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales). Para obtener más información sobre cómo manejamos sus datos personales, consulte nuestra política de privacidad.",
+    "TERMS-5-TEXT": "Usted puede cancelar su cuenta en cualquier momento enviando una solicitud por escrito a nuestro equipo de soporte. Nos reservamos el derecho de cancelar su cuenta en cualquier momento y por cualquier motivo, previa notificación a su dirección de correo electrónico registrada.",
+    "TERMS-6-TEXT": "Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigencia inmediatamente después de su publicación en este sitio web. Al continuar utilizando nuestro sitio después de la publicación de modificaciones, usted acepta y está sujeto a los términos modificados.",
+    "TERMS-7-TEXT": "Estos términos y condiciones se rigen e interpretan de acuerdo con las leyes de España. Cualquier disputa relacionada con estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de España.",
+    "TERMS-8-TEXT": "Si tiene alguna pregunta o inquietud sobre estos términos y condiciones, comuníquese con nosotros a través del siguiente correo electrónico:",
+
+    "PRICE": "Precio",
+    "LANGUAGE": "Idioma",
+    "PUBLISHER": "Editorial",
+    "GENRE": "Género",
+
+    "FRENCH": "Francés",
+    "GERMAN": "Alemán",
+    "ITALIAN": "Italiano",
+    "PORTUGUESE": "Portugués",
+    "CHINESE": "Chino",
+    "JAPANESE": "Japonés",
+    "KOREAN": "Coreano",
+
+    "PAGE": "Página",
+    "OF": "de",
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente",
+
+    "BY": "Por",
+
+    "LOOK-THE-BOOK": "Ver el Libro",
+
+    "WRITE-A-COMMENT-PLACEHOLDER": "Escribir un comentario...",
+    "COMMENT": "Comentar",
+    "SEND": "Enviar",
+    "POST-COMMENT": "Enviar Comentario",
+    "REPLY": "Responder",
+    "REPLY-TO": "Responder a",
+    "DELETE": "Eliminar",
+
+    "SHOW-REPLIES": "Mostrar Respuestas",
+    "HIDE-REPLIES": "Ocultar Respuestas",
+
+    "OOPS": "Upss",
+    "THE-PAGE-YOU-LOOKING-FOR-ISNT-HERE": "La página que estás buscando no está aquí.",
+
+    "SHOW-MORE-COMMENTS": "Mostrar más comentarios",
+    "HIDE-COMMENTS": "Ocultar comentarios",
+
+    "ALL-CATEGORIES": "Todas las Categorías",
+
+    "SORT-BY": "Ordenar por",
+    "BEST-RATED": "Mejor valorados",
+    "WORST-RATED": "Peor valorados",
+    "MOST-COMMENTS": "Más comentarios",
+    "LEAST-COMMENTS": "Menos comentarios",
+
+    "FILTER-BY-AUTHOR": "Filtrar por autor",
+    "FILTER-BY-PUBLISHER": "Filtrar por editorial",
+    "FILTER-BY-ISBN": "Filtrar por ISBN",
+
+    "FILTER-BY-AUTHOR-PLACEHOLDER": "Buscar autor...",
+    "FILTER-BY-PUBLISHER-PLACEHOLDER": "Buscar editorial...",
+    "FILTER-BY-ISBN-PLACEHOLDER": "Buscar ISBN...",
+
+    "FOTO-URL": "URL de la Foto",
+    "ENTER-YOUR-PASSWORD": "Introduce tu contraseña",
+    "CURRENT-PASSWORD": "Contraseña Actual",
+    "CONFIRM-NEW-PASSWORD": "Confirmar Nueva Contraseña",
+    "CHANGE-PASSWORD": "Cambiar Contraseña",
+    "DELETE-ACCOUNT": "Eliminar Cuenta",
+    "PROFILE-SETTINGS": "Configuración de Perfil",
+    "PROFILE": "Perfil",
+    "UPLOAD-IMAGE": "Subir Imagen",
+    "USE-IMAGE-URL": "Usar URL de la Imagen",
+    "IMAGE-UPLOADED": "Imagen subida",
+    "UPDATE-PROFILE": "Actualizar Perfil",
+
+    "CLEAR": "Limpiar",
+    "SEARCH_KEYWORD": "Buscar palabra clave",
+    "ISBN": "ISBN",
+    "AUTHOR": "Autor",
+    "IMAGE": "Imagen",
+    "NO_BOOKS_FOUND": "No se encontraron libros.",
+    "TITLE": "Título",
+    "RATING": "Valoración",
+
+    "EEHH": "¡Ehhh!",
+    "YOU-ARE-NOT-AUTHORIZED-TO-BE-HERE": "No estás autorizado para estar aquí.",
+
+    
+    "ACTIVE": "Activo",
+    "INACTIVE": "Inactivo",
+    "BLOCKED": "Bloqueado",
+    "UNBLOCKED": "Desbloqueado",
+    "ADMIN": "Administrador",
+    "USER": "Usuario",
+    "ROLES": "Roles",
+
+    "PHOTO": "Foto",
+    "ACTIONS": "Acciones",
+
+    "DATA-MANAGEMENT": "Gestión de Datos",
+    "DASHBOARD": "Gráficos",
+
+    "SELECT-ROLE": "Seleccionar Rol",
+
+    "CREATE-USER": "Crear Usuario",
+    "CREATE-BOOK": "Crear Libro",
+    "UPDATE-BOOK": "Actualizar Libro",
+    "CREATE-CATEGORY": "Crear Categoría",
+    "UPDATE-CATEGORY": "Actualizar Categoría",
+    "CREATE-SUBCATEGORY": "Crear Subcategoría",
+    "UPDATE-SUBCATEGORY": "Actualizar Subcategoría",
+
+    "ACTION": "Acción",
+    "STATE": "Estado",
+    "IP-ADRESS": "Dirección IP",
+    "CREATED-AT": "Creado el",
+
+    "REFRESH": "Actualizar",
+    "DELETE-ALL-LOGS": "Eliminar Todos los Registros",
+    "PLACEHOLDER-STATUS": "Seleccionar Estado",
+    "PLACEHOLDER-FIRST-DATE": "Seleccionar el primer día y hora",
+    "PLACEHOLDER-SECOND-DATE": "Seleccionar el segundo día y hora",
+
+    "PPAL1": "Aarón Magro es un contador de historias por naturaleza, cuyas aventuras escritas te transportan a mundos donde lo épico y lo fantástico se entrelazan en cada página. Crecido entre las páginas de J.R.R. Tolkien y los mundos de George R. R. Martin, Aarón ha forjado su propio estilo único en el género de la fantasía épica.",
+    "PPAL2": "Autodidacta y eterno soñador, Aarón ha perfeccionado su arte participando en comunidades de escritores y leyendo sin descanso todo lo que cae en sus manos sobre magos, guerreros y criaturas fantásticas. Su estilo combina la emoción de batallas épicas con la profundidad de sagas intergeneracionales, todo ello sazonado con un toque de humor y humanidad que hace que sus historias resuenen con lectores de todas las edades.",
+    "PPAL3": "Desde su primera novela, que recibió elogios por su creatividad y capacidad de enganchar desde la primera página, Aarón Magro se ha establecido como una voz fresca y emocionante en el género de la fantasía épica. Si estás listo para perderte en un mundo donde lo imposible cobra vida, no te pierdas las obras de Aarón.",
+
+    "CONTACT-ME": "Contáctame",
+
+    "BOOKS-BY-SAME-AUTHOR": "Libros del mismo autor",
+    "BOOKS-BY-SAME-GENRE": "Libros del mismo género",
+
+    "MY-BOOKS": "Mis libros",
+
+    "BOOK": "Libro",
+    "BOOK-DETAILS": "Detalles del Libro",
+    "BOOK-IMAGE": "Imagen del Libro",
+    "CATEGORY": "Categoría",
+    "SUBCATEGORY": "Subcategoría",
+    "DESCRIPTION": "Descripción",
+    "SELECT-CATEGORY": "Seleccionar Categoría",
+
+    "CATEGORIES-AND-SUBCATEGORIES": "Categorías y Subcategorías",
+    "USERS": "Usuarios",
+
+    "NEW": "Nuevo",
+    "DELETE-SELECTED": "Eliminar seleccionados",
+    "EXPORT-TO-PDF": "Exportar a PDF",
+    "NEW-CATEGORY": "Nueva categoría",
+    "NEW-SUBCATEGORY": "Nueva subcategoría",
+    "DELETE-CATEGORIES": "Eliminar categorías",
+    "DELETE-SUBCATEGORIES": "Eliminar subcategorías",
+
+    "Libros Mejor Valorados y Más Comentados": "Libros Mejor Valorados y Más Comentados",
+    "Libros por Editorial": "Libros por Editorial",
+    "Libros por Autor": "Libros por Autor",
+    "Estadísticas de Usuarios": "Estadísticas de Usuarios",
+    "Número de registros:": "Número de registros:",
+
+    "COMMENTS": "Comentarios",
+    "AVERAGE_RATING": "Valoración Promedio",
+    "RATING_COUNT": "Número de Valoraciones",
+    "BOOKS_BY_PUBLISHER": "Libros por Editorial",
+    "BOOKS_BY_AUTHOR": "Libros por Autor",
+    "MAIN_COMMENTS": "Comentarios Principales",
+    "REPLIES": "Respuestas",
+
+    "VALIDATIONS": {
+        "REQUIRED": "El campo '{{field}}' es obligatorio",
+        "MAXLENGTH": "El campo '{{field}}' excede la longitud máxima permitida",
+        "MINLENGTH": "El campo '{{field}}' no cumple con la longitud mínima de caracteres",
+        "EMAIL": "El campo '{{field}}' no tiene un formato válido de correo electrónico"
+    },
+
+    "PLACEHOLDERS": {
+        "USERNAME": "Nombre de usuario",
+        "NOMBRE": "Nombre",
+        "APELLIDO1": "Apellido",
+        "APELLIDO2": "Segundo apellido",
+        "EMAIL": "Correo electrónico",
+        "PASSWORD": "Contraseña",
+        "PASSWORD2": "Repetir contraseña",
+        "CATEGORY_NAME_ES": "Nombre de la Categoría (ES)",
+        "CATEGORY_DESCRIPTION_ES": "Descripción de la Categoría (ES)",
+        "CATEGORY_NAME_EN": "Nombre de la Categoría (EN)",
+        "CATEGORY_DESCRIPTION_EN": "Descripción de la Categoría (EN)",
+        "SUBCATEGORY_NAME_ES": "Nombre de la Subcategoría (ES)",
+        "SUBCATEGORY_DESCRIPTION_ES": "Descripción de la Subcategoría (ES)",
+        "SUBCATEGORY_NAME_EN": "Nombre de la Subcategoría (EN)",
+        "SUBCATEGORY_DESCRIPTION_EN": "Descripción de la Subcategoría (EN)",
+        "AUTHOR": "Autor",
+        "ISBN": "ISBN",
+        "PRICE": "Precio",
+        "PUBLISHER": "Editorial",
+        "LANGUAGE": "Idioma",
+        "SELECT-SUBCATEGORY": "Seleccionar Subcategoría",
+        "TITLE_ES": "Título (ES)",
+        "DESCRIPTION_ES": "Descripción (ES)",
+        "TITLE_EN": "Título (EN)",
+        "DESCRIPTION_EN": "Descripción (EN)"
+
+    },
+   
+    "NOTIFICATIONS": {
+        "USERNAME_REQUIRED": "Por favor, ingrese un nombre de usuario",
+        "EMAIL_REQUIRED": "Por favor, ingrese un correo electrónico",
+        "USERNAME_EXISTS": "Este nombre de usuario ya existe",
+        "EMAIL_EXISTS": "El correo electrónico ya está registrado",
+        "PASSWORDS_NOT_MATCH": "Las contraseñas no coinciden",
+        "TERMS_NOT_ACCEPTED": "Debes aceptar los términos y condiciones",
+        "REGISTER_SUCCESS": "Usuario registrado correctamente",
+        "REGISTER_ERROR": "Error al registrar el usuario",
+        "USERNAME_CHECK_ERROR": "Error al verificar la disponibilidad del nombre de usuario",
+        "EMAIL_CHECK_ERROR": "Error al verificar la disponibilidad del correo electrónico",
+        "RESET_SUCCESS": "La contraseña se ha cambiado correctamente, se cerrará esta ventana en unos segundos.",
+        "RESET_ERROR": "No se pudo cambiar la contraseña, contacte con el administrador.",
+        "PROFILE_UPDATED": "Perfil actualizado correctamente.",
+        "PASSWORD_INCORRECT": "La contraseña es incorrecta.",
+        "PASSWORD_REQUIRED": "Has de introducir tu contraseña para actualizar tu perfil.",
+        "PASSWORD_UPDATED": "Contraseña actualizada correctamente.",
+        "ACCOUNT_DELETED": "Cuenta eliminada correctamente.",
+        "AUTHENTICATION_ERROR": "Error de autenticación",
+        "LOGIN_SUCCESS": "Inicio de sesión exitoso",
+        "LOGIN_FAILED": "Inicio de sesión fallido",
+        "INVALID_AUTH_PARAMETERS": "Parámetros de autenticación inválidos",
+
+        "LOGIN_ERROR": {
+            "TOO_MANY_ATTEMPTS": "Demasiados intentos. Intente nuevamente más tarde.",
+            "USER_BLOCKED": "El usuario está bloqueado. Contacte al administrador.",
+            "USER_INACTIVE": "El usuario está inactivo. Contacte al administrador.",
+            "INVALID_CREDENTIALS": "Credenciales inválidas",
+            "UNKNOWN_ERROR": "Error desconocido",
+            "SESSION_CLOSED": "Sesión cerrada",
+            "GOODBYE": "¡Hasta luego!"
+        },
+
+        "LOGS": {
+            "LOAD_ERROR": "Error al cargar los logs",
+            "DELETE_SUCCESS": "Log eliminado correctamente",
+            "DELETE_ERROR": "Error al eliminar el log",
+            "DELETE_CANCELLED": "Operación de eliminación cancelada",
+            "DELETE_ALL_SUCCESS": "Todos los logs eliminados correctamente",
+            "DELETE_ALL_ERROR": "Error al eliminar todos los logs"
+        },
+
+        "CONFIRM": {
+            "DELETE_LOG": "¿Estás seguro de que deseas eliminar este log?",
+            "DELETE_ALL_LOGS": "¿Estás seguro de que deseas eliminar todos los logs?",
+            "HEADER": "Confirmación de eliminación",
+            "ICON": "pi pi-info-circle",
+            "DELETE_BOOK": "¿Estás seguro de que deseas eliminar el libro \"{{title}}\"?",
+            "DELETE_SELECTED_BOOKS": "¿Estás seguro de que deseas eliminar los libros seleccionados: {{titles}}?",
+            "DELETE_CATEGORY": "¿Estás seguro de que deseas eliminar la categoría \"{{name}}\" y todas sus subcategorías?",
+            "DELETE_SELECTED_CATEGORIES": "¿Estás seguro de que deseas eliminar las categorías seleccionadas: {{names}}?",
+            "DELETE_SUBCATEGORY": "¿Estás seguro de que deseas eliminar la subcategoría \"{{name}}\"?",
+            "DELETE_SELECTED_SUBCATEGORIES": "¿Estás seguro de que deseas eliminar las subcategorías seleccionadas: {{names}}?"
+        },
+
+        "BOOK_FORM": {
+            "ISBN_REQUIRED": "El ISBN es obligatorio",
+            "AUTHOR_REQUIRED": "El autor es obligatorio",
+            "PRICE_REQUIRED": "El precio es obligatorio",
+            "PUBLISHER_REQUIRED": "La editorial es obligatoria",
+            "LANGUAGE_REQUIRED": "El idioma es obligatorio",
+            "SUBCATEGORY_REQUIRED": "La subcategoría es obligatoria",
+            "TITLE_ES_REQUIRED": "El título en español es obligatorio",
+            "DESC_ES_REQUIRED": "La descripción en español es obligatoria",
+            "TITLE_EN_REQUIRED": "El título en inglés es obligatorio",
+            "DESC_EN_REQUIRED": "La descripción en inglés es obligatoria",
+            "IMAGE_REQUIRED": "La imagen es obligatoria",
+            "FILL_REQUIRED_FIELDS": "Por favor, complete todos los campos obligatorios",
+            "BOOK_SAVED_SUCCESS": "Libro guardado con éxito",
+            "BOOK_SAVE_FAILED": "No se pudo guardar el libro",
+            "BOOK_UPDATED_SUCCESS": "Libro actualizado con éxito",
+            "BOOK_UPDATE_FAILED": "No se pudo actualizar el libro"
+        },
+
+        "BOOK": {
+            "USER_DATA_ERROR": "Error al obtener los datos del usuario",
+            "USER_RATING_ERROR": "Error al obtener la valoración del usuario",
+            "SUBMIT_RATING_SUCCESS": "Valoración enviada con éxito",
+            "SUBMIT_RATING_ERROR": "Error al enviar la valoración",
+            "INVALID_RATING": "Valoración inválida",
+            "LOGIN_TO_RATE": "Inicia sesión para valorar el libro"
+        },
+
+        "BOOK_LIST": {
+            "DELETE_SUCCESS": "Libro eliminado correctamente",
+            "DELETE_ERROR": "Error al eliminar el libro",
+            "DELETE_CANCELLED": "Operación de eliminación cancelada",
+            "EXPORT_ERROR": "Error al exportar los libros",
+            "EXPORT_SUCCESS": "Libros exportados correctamente"
+        },
+
+        "CATEGORY_LIST": {
+            "DELETE_SUCCESS": "Categoría eliminada correctamente",
+            "DELETE_ERROR": "Error al eliminar la categoría",
+            "DELETE_CANCELLED": "Operación de eliminación cancelada",
+            "SUBCATEGORY_DELETE_SUCCESS": "Subcategoría eliminada correctamente",
+            "SUBCATEGORY_DELETE_ERROR": "Error al eliminar la subcategoría",
+            "EXPORT_SUCCESS": "Categorías exportadas correctamente",
+            "EXPORT_ERROR": "Error al exportar las categorías"
+        },
+
+        "CATEGORY_FORM": {
+            "SAVE_SUCCESS": "Categoría guardada correctamente",
+            "SAVE_ERROR": "Error al guardar la categoría",
+            "UPDATE_SUCCESS": "Categoría actualizada correctamente",
+            "UPDATE_ERROR": "Error al actualizar la categoría",
+            "FIELD_REQUIRED": "Por favor complete todos los campos requeridos"
+        },
+
+        "COMMENT_FORM": {
+            "COMMENT_SENT": "Comentario enviado",
+            "LOGIN_REQUIRED": "Debes iniciar sesión para comentar"
+        },
+
+        "COMMENT_ITEM": {
+          "COMMENT_DELETED": "Comentario eliminado",
+          "DELETE_ERROR": "Error al eliminar el comentario",
+          "REPLY_SENT": "Comentario enviado",
+          "LOGIN_REQUIRED": "Debes iniciar sesión para comentar"
+        },
+
+        "FORGOT_PASSWORD": {
+            "EMAIL_REQUIRED": "Por favor, introduzca su correo electrónico",
+            "LINK_SENT_SUCCESS": "El enlace de restablecimiento se ha enviado correctamente. Serás redirigido a la página de inicio de sesión en unos segundos.",
+            "LINK_SENT_ERROR": "No se pudo enviar el enlace de restablecimiento. Por favor, contacte con el administrador.",
+            "EMAIL_NOT_EXISTS": "El correo electrónico ingresado no existe. Por favor, verifíquelo e inténtelo de nuevo.",
+            "RESET_LINK_ERROR": "Error al enviar el enlace de restablecimiento. Por favor, inténtelo de nuevo más tarde."
+        },
+
+        "SUBCATEGORY_FORM": {
+            "MODAL_TITLE": "Formulario de Subcategoría",
+            "MODAL_WARNING": "Advertencia: Esta acción es irreversible. Todos tus datos serán eliminados permanentemente y no se pueden recuperar.",
+            "PASSWORD_LABEL": "Contraseña",
+            "PASSWORD_PLACEHOLDER": "Introduce tu contraseña...",
+            "CANCEL_BUTTON": "Cancelar",
+            "SAVE_BUTTON": "Guardar",
+            "UPDATE_BUTTON": "Actualizar",
+            "SUCCESS_SAVE_MESSAGE": "Subcategoría guardada correctamente",
+            "ERROR_SAVE_MESSAGE": "Error al guardar la subcategoría",
+            "SUCCESS_UPDATE_MESSAGE": "Subcategoría actualizada correctamente",
+            "ERROR_UPDATE_MESSAGE": "Error al actualizar la subcategoría",
+            "LOAD_TRANSLATIONS_ERROR": "Error al cargar las traducciones de la subcategoría",
+            "LOAD_CATEGORIES_ERROR": "Error al cargar las categorías",
+            "FAILED_LOAD_TRANSLATIONS": "Error al cargar las traducciones de la subcategoría",
+            "SUBCATEGORY_SAVED_SUCCESSFULLY": "Subcategoría guardada correctamente",
+            "FAILED_SAVE_SUBCATEGORY": "Error al guardar la subcategoría",
+            "SUBCATEGORY_UPDATED_SUCCESSFULLY": "Subcategoría actualizada correctamente",
+            "FAILED_UPDATE_SUBCATEGORY": "Error al actualizar la subcategoría"
+        },
+
+        "USER_FORM": {
+            "FILL_REQUIRED_FIELDS": "Por favor, complete todos los campos requeridos",
+            "USER_CREATED_SUCCESSFULLY": "Usuario creado correctamente",
+            "FAILED_CREATE_USER": "Error al crear el usuario",
+            "USER": "Usuario",
+            "ADMIN": "Administrador"
+        },
+
+        "USERS_LIST": {
+            "ACTIVE": "Activo",
+            "BLOCKED": "Bloqueado",
+            "EMAIL": "Correo electrónico",
+            "INACTIVE": "Inactivo",
+            "NAME": "Nombre",
+            "ROLES": "Roles",
+            "SECOND-SURNAME": "Segundo apellido",
+            "SURNAME": "Apellido",
+            "USERNAME": "Nombre de usuario",
+            "USER_UPDATED": "Usuario actualizado",
+            "ERROR_UPDATING_USER": "Error al actualizar usuario",
+            "DELETE_CONFIRMATION": "Confirmación de eliminación",
+            "DELETE_CANCELLED": "Eliminación cancelada",
+            "DELETE_CONFIRMATION_MESSAGE": "¿Estás seguro de que deseas eliminar al usuario '{{username}}'?",
+            "DELETE_SELECTED_CONFIRMATION_MESSAGE": "¿Estás seguro de que deseas eliminar a los usuarios seleccionados '{{selectedUserNames}}'?",
+            "ERROR_DELETING_USER": "Error al eliminar usuario",
+            "USER_DELETED": "Usuario eliminado"
+        }
+          
+
+        
+    
+
+
+
+
+
+
+        
+
+
+
+
+        
+    },
+
+    "DELETE_ACCOUNT": {
+        "MODAL_TITLE": "Eliminar Cuenta",
+        "MODAL_WARNING": "Advertencia: Esta acción es irreversible. Todos tus datos serán eliminados permanentemente y no se pueden recuperar.",
+        "PASSWORD_LABEL": "Contraseña",
+        "PASSWORD_PLACEHOLDER": "Introduce tu contraseña...",
+        "CANCEL_BUTTON": "Cancelar",
+        "DELETE_BUTTON": "Eliminar"
+    },
+
+    "STATUS": {
+        "ALL": "Todos",
+        "SUCCESS": "Éxito",
+        "WARNING": "Advertencia",
+        "ERROR": "Error",
+        "INFO": "Información"
+    },
+      
+    "ROUTES": {
+        "LOGIN": "Iniciar Sesión",
+        "LOGIN_CALLBACK": "Callback de Iniciar Sesión",
+        "REGISTER": "Registrarse",
+        "FORGOT_PASSWORD": "Olvidé mi contraseña",
+        "RESET_PASSWORD": "Restablecer contraseña",
+        "PROFILE": "Perfil",
+        "HOME": "Inicio",
+        "UNAUTHORIZED": "No autorizado",
+        "NOT_FOUND": "No encontrado",
+        "SERVER_ERROR": "Error de servidor",
+        "BAD_REQUEST": "Solicitud incorrecta",
+        "FORBIDDEN": "Prohibido",
+        "BOOK_DETAILS": "Detalles del Libro",
+        "SUBCATEGORY": "Subcategoría",
+        "CATEGORIES": "Categorías",
+        "BOOKS": "Libros",
+        "ADMIN_MANAGEMENT": "Administración",
+        "ADMIN_DASHBOARD": "Panel de control"
+    },
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+    "primeng": {
+        "startsWith": "Empieza con",
+        "contains": "Contiene",
+        "notContains": "No contiene",
+        "endsWith": "Termina con",
+        "equals": "Igual a",
+        "notEquals": "Distinto de",
+        "noFilter": "Sin filtro",
+        "lt": "Menor que",
+        "lte": "Menor o igual que",
+        "gt": "Mayor que",
+        "gte": "Mayor o igual que",
+        "is": "Es",
+        "isNot": "No es",
+        "before": "Antes de",
+        "after": "Después de",
+        "dateIs": "La fecha es",
+        "dateIsNot": "La fecha no es",
+        "dateBefore": "La fecha es antes de",
+        "dateAfter": "La fecha es después de",
+        "clear": "Limpiar",
+        "apply": "Aplicar",
+        "matchAll": "Coincidir todo",
+        "matchAny": "Coincidir cualquier",
+        "addRule": "Agregar regla",
+        "removeRule": "Eliminar regla",
+        "accept": "Sí",
+        "reject": "No",
+        "choose": "Elegir",
+        "upload": "Subir",
+        "cancel": "Cancelar",
+        "dayNames": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+        "dayNamesShort": ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+        "dayNamesMin": ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
+        "monthNames": ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+        "monthNamesShort": ["Ene", "Feb", "Mar", "Abr", "May", "Jun","Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+        "dateFormat": "dd/mm/yy",
+        "firstDayOfWeek": 0,
+        "today": "Hoy",
+        "weekHeader": "Sm",
+        "weak": "Débil",
+        "medium": "Medio",
+        "strong": "Fuerte",
+        "passwordPrompt": "Ingrese una contraseña",
+        "emptyMessage": "No se encontraron resultados",
+        "emptyFilterMessage": "No se encontraron resultados"
+
+    },
+
+    "in total there are": "En total hay",
+    "users.": "usuarios.",
+    "SHOWING": "Mostrando",
+    "TO": "a",
+    "RESULTS": "resultados",
+    "CLEAR-ALL": "Limpiar todo"
+      
+}

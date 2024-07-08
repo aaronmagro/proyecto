@@ -1,0 +1,97 @@
+<div *ngIf="isLoading">
+    <app-main-loader></app-main-loader>
+</div>
+
+<div *ngIf="!isLoading" id="user"
+    class="profile-container flex flex-col md:flex-row w-full mx-auto items-center h-auto md:h-[100vh]">
+    <div
+        class="mx-auto w-full md:w-9/12 h-auto md:h-[90vh] flex flex-col md:flex-row items-center rounded-lg shadow-xl bg-white border border-gray-300">
+        <!-- Tab de usuario -->
+        <div
+            class="sidebar w-full md:w-1/12 bg-[#65475c] p-5 h-auto md:h-full flex md:flex-col justify-center rounded-tl-lg rounded-bl-lg">
+            <ul class="nav-list list-none p-0 m-0 flex md:flex-col justify-around">
+                <li class="nav-item flex items-center py-2 px-2 cursor-pointer text-white transition-all duration-300 rounded-lg"
+                    [class.bg-[#7B5C72]]="selectedTab === 'user'" (click)="selectedTab = 'user'">
+                    <i class="fas fa-user mr-2"></i>
+                    <span>{{ 'USER' | translate }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="content w-full md:w-11/12 flex justify-center items-center p-5 h-auto md:h-full overflow-auto">
+            <div class="content-inner w-full max-w-2xl">
+                <!-- Contenido de usuario -->
+                <div *ngIf="selectedTab === 'user'" class="fade-in">
+                    <form [formGroup]="userForm" (ngSubmit)="saveUser()" class="form flex flex-col">
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-user user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="username" formControlName="username" [placeholder]=" 'USERNAME' | translate "
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-envelope user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="email" formControlName="email" [placeholder]=" 'EMAIL' | translate " type="email"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-user user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="nombre" formControlName="nombre" [placeholder]=" 'NAME' | translate "
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-user user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="apellido1" formControlName="apellido1" [placeholder]=" 'SURNAME' | translate "
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-user user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <input id="apellido2" formControlName="apellido2" [placeholder]=" 'SECOND-SURNAME' | translate "
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                        </div>
+
+                        <div class="input-group relative flex items-center mb-4">
+                            <i class="fas fa-lock user-icon absolute left-3 text-[#AF92A7]"></i>
+                            <p-dropdown [options]="roles" formControlName="roles"
+                                [placeholder]="'SELECT-ROLE' | translate"
+                                class="form-control w-full pl-10 p-2 border border-gray-300 placeholder-[#AF92A7] rounded-lg custom-focus">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="input-group flex justify-start items-center mb-4">
+                            <label class="container">
+                                <input type="checkbox" id="activo" formControlName="activo">
+                                <svg viewBox="0 0 64 64" height="1.45em" width="1.45em">
+                                    <path
+                                        d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                        pathLength="575.0541381835938" class="path"></path>
+                                </svg>
+                            </label>
+                            <label for="activo" class="ml-2 texto">{{'ACTIVE' | translate}}</label>
+                        </div>
+
+                        <div class="input-group flex justify-start items-center mb-4">
+                            <label class="container">
+                                <input type="checkbox" id="bloqueado" formControlName="bloqueado">
+                                <svg viewBox="0 0 64 64" height="1.45em" width="1.45em">
+                                    <path
+                                        d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                        pathLength="575.0541381835938" class="path"></path>
+                                </svg>
+                            </label>
+                            <label for="bloqueado" class="ml-2 texto">{{'BLOCKED' | translate}}</label>
+                        </div>
+
+                        <div class="flex justify-center items-center mt-5">
+                            <button type="submit" class="btn btn-primary w-full">
+                                {{ 'CREATE-USER' | translate }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

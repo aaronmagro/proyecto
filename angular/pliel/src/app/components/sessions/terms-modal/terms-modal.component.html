@@ -1,0 +1,39 @@
+<div id="terms">
+
+  <!-- Título de los términos y condiciones -->
+  <h2 mat-dialog-title class="mat-dialog-title">{{ 'TERMS-AND-CONDITIONS' | translate }}</h2>
+
+  <!-- Contenido de los términos y condiciones -->
+  <div mat-dialog-content class="mat-dialog-content custom-scroll">
+    <p cdkFocusInitial><strong> 1. {{ 'TERMS-1' | translate }} </strong></p>
+    <p> {{ 'TERMS-1-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 2. {{ 'TERMS-2' | translate }} </strong></p>
+    <p> {{ 'TERMS-2-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 3. {{ 'TERMS-3' | translate }} </strong></p>
+    <p> {{ 'TERMS-3-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 4. {{ 'TERMS-4' | translate }} </strong></p>
+    <p> {{ 'TERMS-4-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 5. {{ 'TERMS-5' | translate }} </strong></p>
+    <p> {{ 'TERMS-5-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 6. {{ 'TERMS-6' | translate }} </strong></p>
+    <p> {{ 'TERMS-6-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 7. {{ 'TERMS-7' | translate }} </strong></p>
+    <p> {{ 'TERMS-7-TEXT' | translate }} </p>
+    <br>
+    <p><strong> 8. {{ 'TERMS-8' | translate }} </strong></p>
+    <p> {{ 'TERMS-8-TEXT' | translate }} <a href="mailto:contact@pliel.es?Subject=Duda%20sobre%20términos%20y%20condiciones" target="_blank" style="font-style: italic; text-decoration: underline;">contact&#64;pliel.es</a>.</p>
+  </div>
+
+  <!-- Botones de aceptar y cerrar -->
+  <div mat-dialog-actions class="mat-dialog-actions text-right">
+    <app-button-simple [buttonText]=" 'CLOSE' | translate " mat-button (click)="dismiss(false)"></app-button-simple>
+    <app-button-simple [buttonText]=" 'ACCEPT-TERMS-MODAL' | translate " mat-button (click)="acceptTerms()"></app-button-simple>
+  </div>
+    
+</div>

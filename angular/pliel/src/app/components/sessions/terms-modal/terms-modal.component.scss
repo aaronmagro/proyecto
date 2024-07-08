@@ -1,0 +1,70 @@
+// Variables de color
+$background: #EED6E7;
+$font-color: #7B5C72;
+$font-color-sub: #AF92A7;
+$bg-color: #fff;
+$main-color: #AF92A7;
+$accent-color: #F2C9DE;
+
+// Estilos para el modal
+.mat-dialog-content {
+  height: 75vh;
+  font-size: 1rem; // 16px es un buen tamaño de base
+  line-height: 1.6; // Un poco más de espacio hace que el texto sea más legible
+  color: $font-color;
+  background-color: $bg-color;
+  padding: 2rem; // Espacio interior más generoso
+  border-radius: 4px; // Esquinas ligeramente redondeadas para suavizar el diseño
+  overflow-y: auto;
+}
+
+.mat-dialog-title {
+  color: $main-color;
+  font-size: 1.5rem; // Alrededor de 24px
+  font-weight: bold;
+  padding: 1rem; // Espacio superior para el título
+  background: $background;
+}
+
+.mat-dialog-actions {
+  padding: 1rem;
+  background: $background;
+}
+
+// Estilos personalizados para el contenido
+.terms-section {
+  margin-bottom: 1.5rem;
+  h3 {
+    font-size: 1.2rem; // Un tamaño más grande para los subtítulos
+    color: $main-color;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1rem; // Más espacio entre párrafos
+  }
+  a {
+    color: $main-color;
+    &:hover {
+      text-decoration: none; // Opción de eliminar el subrayado al pasar el ratón
+      color: darken($main-color, 10%); // Oscurecer el color al pasar el ratón
+    }
+  }
+}
+
+// Scroll personalizado para el contenido (opcional)
+.custom-scroll {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $main-color;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($main-color, 10%);
+  }
+}

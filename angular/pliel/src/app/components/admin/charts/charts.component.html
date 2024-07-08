@@ -1,0 +1,78 @@
+<div class="container" class="w-full">
+
+        <!-- Menú de tabs -->
+        <div class="tabmenu-wrap">
+                <div class="tab-nav">
+                        <span class="nav on"><a href="#tabcon-01">{{ 'BOOKS' | translate }}</a></span>
+                        <span class="nav"><a href="#tabcon-02">{{ 'USERS' | translate }}</a></span>
+                </div>
+        </div>
+
+        <!-- Componentes / Charts de los tabs -->
+        <div class="tab-con">
+                <div id="tabcon-01" class="con-box" style="display: block">
+                        <div class="component-container">
+                                <div class="charts-container grid grid-cols-1 gap-4">
+                                        <div class="card">
+                                                <h3>{{'Libros Mejor Valorados y Más Comentados'|translate}}</h3>
+                                                <label for="numRecordsCombined" class="mr-2">{{'Número de
+                                                        registros:'|translate}}</label>
+                                                <select id="numRecordsCombined" [(ngModel)]="numRecordsCombined"
+                                                        (change)="updateCharts()">
+                                                        <option *ngFor="let option of recordOptions" [value]="option">
+                                                                {{ option }}
+                                                        </option>
+                                                </select>
+                                                <canvas #combinedChart></canvas>
+                                        </div>
+                                        <div class="card">
+                                                <h3>{{'Libros por Editorial'|translate}}</h3>
+                                                <label for="numRecordsPublisher" class="mr-2">{{'Número de
+                                                        registros:'|translate}}</label>
+                                                <select id="numRecordsPublisher" [(ngModel)]="numRecordsPublisher"
+                                                        (change)="updateCharts()">
+                                                        <option *ngFor="let option of recordOptions" [value]="option">
+                                                                {{ option }}
+                                                        </option>
+                                                </select>
+                                                <canvas #booksByPublisherChart></canvas>
+                                        </div>
+                                        <div class="card">
+                                                <h3>{{'Libros por Autor'|translate}}</h3>
+                                                <label for="numRecordsAuthor" class="mr-2">{{'Número de
+                                                        registros:'|translate}}</label>
+                                                <select id="numRecordsAuthor" [(ngModel)]="numRecordsAuthor"
+                                                        (change)="updateCharts()">
+                                                        <option *ngFor="let option of recordOptions" [value]="option">
+                                                                {{ option }}
+                                                        </option>
+                                                </select>
+                                                <canvas #booksByAuthorChart></canvas>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+                <div id="tabcon-02" class="con-box">
+                        <div class="component-container">
+                                <div class="charts-container grid grid-cols-1 gap-4">
+                                        <div class="card">
+                                                <h3>{{ 'Estadísticas de Usuarios' | translate }}</h3>
+                                                <label for="numRecordsUserStats" class="mr-2">{{'Número de
+                                                        registros:'|translate}}</label>
+                                                <select id="numRecordsUserStats" [(ngModel)]="numRecordsUserStats"
+                                                        (change)="updateCharts()">
+                                                        <option *ngFor="let option of recordOptions" [value]="option">
+                                                                {{option}}</option>
+                                                </select>
+                                                <canvas id="userStatisticsChart"></canvas>
+                                        </div>
+                                        <div class="card">
+                                                <h3>Logs</h3>
+                                                <app-log-list></app-log-list>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

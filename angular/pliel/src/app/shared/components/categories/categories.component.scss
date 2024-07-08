@@ -1,0 +1,127 @@
+$text-color: #7b5c72;
+$secondary-text-color: #65475c;
+$bg-ppal-color: #EED6E7;
+$bg-color: #c8adc0;
+$secondary-bg-color: #af92a7;
+$border-color: rgba(#65475c, 0.3);
+
+.search-container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  width: 50%; // Ajustar según el diseño deseado
+
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid $border-color;
+    border-radius: 5px;
+    background-color: $bg-ppal-color;
+    color: $text-color;
+
+    &::placeholder {
+      color: $secondary-text-color;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $secondary-bg-color;
+      background-color: $bg-color;
+    }
+  }
+}
+
+.categories-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  .category-column {
+    background-color: $bg-ppal-color;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    color: $text-color;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &.expanded {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .category-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .subcategory-list {
+      list-style: none;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-color: $bg-ppal-color;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-top: 10px;
+      z-index: 1000;
+      top: calc(100% + 10px); // Añadir margen superior para desplazar las subcategorías debajo del contenedor principal
+
+      li {
+        cursor: pointer;
+        padding: 10px;
+        border-bottom: 1px solid $border-color;
+
+        &:hover {
+          background-color: $bg-color;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        span {
+          color: $text-color;
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    &.expanded .subcategory-list {
+      overflow-y: auto;
+      max-height: 500px; // Ajustar según la altura del contenido
+      opacity: 1;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#categories {
+  animation: fadeIn 0.4s ease-in-out;
+  clear: both;
+  margin: 90px auto 90px;
+  width: 100%;
+  max-width: 1420px;
+}

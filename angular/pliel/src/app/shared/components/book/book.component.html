@@ -1,0 +1,90 @@
+<div id="topOfPage" style="visibility: hidden;"></div>
+
+<div *ngIf="isLoading" class="flex justify-center items-center h-screen">
+    <app-main-loader></app-main-loader>
+</div>
+
+<div *ngIf="!isLoading" class="flex flex-col justify-center items-center min-h-screen p-5 transition-all" id="book">
+    <div
+        class="card-container flex flex-col md-lg:flex-row justify-center items-center w-full max-w-6xl mx-auto bg-[#c8adc0] shadow-lg rounded-lg p-5 my-1">
+
+        <!-- Imagen del libro -->
+        <div class="book-image w-full md-lg:w-1/3 md-lg:mr-5">
+            <img src="{{ book?.image }}" alt="Cover image" class="w-full h-auto block cursor-pointer"
+                (click)="openImageModal()">
+        </div>
+
+        <!-- Información del libro -->
+        <div class="book-info w-full md-lg:w-2/3 flex flex-col justify-center px-4">
+            <h1 class="text-2xl uppercase text-[#65475c] font-bold my-2">{{ book?.title }}</h1>
+            <span class="text-xl text-[#af92a7] font-bold my-1">{{ book?.author }}</span>
+            <div class="book-description text-center">
+                <div class="text-justify text-[#7b5c72] my-2 text-ellipsis" [innerHTML]="book?.desc"></div>
+            </div>
+            <div class="book-details text-[#7b5c72] mt-auto">
+                <span class="block my-1"><b>ISBN:</b> {{ book?.isbn }}</span>
+                <span class="block my-1"><b>{{ 'PRICE' | translate }}:</b> {{ book?.price }} €</span>
+                <span class="block my-1"><b>{{ 'LANGUAGE' | translate }}: </b>
+                    <span *ngIf="book?.language == 'es'">{{ 'SPANISH' | translate }}</span>
+                    <span *ngIf="book?.language == 'en'">{{ 'ENGLISH' | translate }}</span>
+                    <span *ngIf="book?.language == 'fr'">{{ 'FRENCH' | translate }}</span>
+                    <span *ngIf="book?.language == 'de'">{{ 'GERMAN' | translate }}</span>
+                    <span *ngIf="book?.language == 'it'">{{ 'ITALIAN' | translate }}</span>
+                    <span *ngIf="book?.language == 'pt'">{{ 'PORTUGUESE' | translate }}</span>
+                    <span *ngIf="book?.language == 'ch'">{{ 'CHINESE' | translate }}</span>
+                    <span *ngIf="book?.language == 'jp'">{{ 'JAPANESE' | translate }}</span>
+                    <span *ngIf="book?.language == 'ko'">{{ 'KOREAN' | translate }}</span>
+                </span>
+                <span class="block my-1"><b>{{ 'PUBLISHER' | translate }}:</b> {{ book?.publisher }}</span>
+                <span class="block my-1"><b>{{ 'GENRE' | translate }}:</b> {{ subcategory?.name }}</span>
+                <div *ngIf="loggedIn === true">
+                    <app-ratings [currentRate]="userRating ?? 0"
+                        (ratingChange)="submitRatingIfLoggedIn($event)"></app-ratings>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comentarios -->
+    <div class="comments-section w-full max-w-6xl mx-auto mt-5 bg-white p-5 rounded-lg shadow">
+        <app-comment-form [bookId]="bookId"></app-comment-form>
+        <app-comment-list [bookId]="bookId"></app-comment-list>
+    </div>
+
+    <!-- Libros relacionados por mismo autor -->
+    <div class="related-books-section w-full mx-auto mt-5 bg-white p-5 rounded-lg shadow"
+        [ngClass]="{'single-book': relatedAuthorBooks.length === 1, 'two-books': relatedAuthorBooks.length === 2, 'multiple-books': relatedAuthorBooks.length > 2}"
+        *ngIf="relatedAuthorBooks.length > 0">
+        <h2 class="text-2xl uppercase text-[#65475c] font-bold my-2 text-center">{{ 'BOOKS-BY-SAME-AUTHOR' | translate }}</h2>
+        <p-carousel [value]="relatedAuthorBooks" [numVisible]="3" [numScroll]="1" [circular]="true"
+            [responsiveOptions]="responsiveOptions" class="carousel">
+            <ng-template let-relatedBook pTemplate="item">
+                <div class="related-book-item bg-[#c8adc0] p-4 m-2 rounded-lg shadow max-w-[400px] h-[97%]"
+                    style="margin-right: 10px; margin-left: 10px;">
+                    <img [src]="relatedBook.image" [routerLink]="['/book', relatedBook.id]"
+                        alt="{{ relatedBook.title }}" class="w-full h-auto mb-2" (click)="scrollToTop()">
+                    <h3 class="text-xl text-[#65475c] font-bold">{{ relatedBook.title }}</h3>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+    <!-- Libros relacionados por misma categoría -->
+    <div class="related-books-section w-full max-w-6xl mt-5 bg-white p-5 rounded-lg shadow"
+        [ngClass]="{'single-book': relatedSubcategoryBooks.length === 1, 'two-books': relatedSubcategoryBooks.length === 2, 'multiple-books': relatedSubcategoryBooks.length > 2}"
+        *ngIf="relatedSubcategoryBooks.length > 0">
+        <h2 class="text-2xl uppercase text-[#65475c] font-bold my-2 text-center">{{ 'BOOKS-BY-SAME-GENRE' | translate }}</h2>
+        <p-carousel [value]="relatedSubcategoryBooks" [numVisible]="3" [numScroll]="1" [circular]="true"
+            [responsiveOptions]="responsiveOptions" class="carousel">
+            <ng-template let-relatedBook pTemplate="item">
+                <div class="related-book-item bg-[#c8adc0] p-4 m-2 rounded-lg shadow mx-auto max-w-[400px] h-[97%]"
+                    style="margin-right: 10px; margin-left: 10px;">
+                    <img [src]="relatedBook.image" [routerLink]="['/book', relatedBook.id]"
+                        alt="{{ relatedBook.title }}" class="w-full h-auto mb-2" (click)="scrollToTop()">
+                    <h3 class="text-xl text-[#65475c] font-bold">{{ relatedBook.title }}</h3>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+</div>

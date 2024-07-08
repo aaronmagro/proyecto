@@ -1,0 +1,173 @@
+<!-- Toolbar con botones de acción como nuevo, eliminar seleccionados y exportar a PDF -->
+<p-toolbar class="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <p-button pRipple severity="success" [label]="'NEW'|translate" icon="pi pi-plus" class="mr-2" (click)="openNew()"></p-button>
+        <p-button pRipple severity="danger" [label]="'DELETE-SELECTED'|translate" icon="pi pi-trash" (click)="confirmDeleteSelectedUsers()"
+            [disabled]="!selectedUsers || !selectedUsers.length"></p-button>
+    </ng-template>
+    <ng-template pTemplate="right">
+        <p-button pRipple severity="help" [label]="'EXPORT-TO-PDF'|translate" icon="pi pi-upload" (click)="exportUsers()"></p-button>
+    </ng-template>
+</p-toolbar>
+
+<!-- Tabla de usuarios -->
+<div class="flex flex-col items-center min-h-screen">
+    <div class="table-wrapper w-full max-w-[100%] mx-auto p-4 bg-white shadow-md rounded-lg scale-[0.95] mt-10 mb-10 overflow-x-auto"
+        id="user">
+        <!-- Formulario de usuario -->
+        <app-user-form *ngIf="showForm" (formClose)="onFormClose()"></app-user-form>
+        
+        <!-- Tabla de usuarios -->
+        <p-table #dt1 [value]="filteredUsers" dataKey="id" editMode="row" [rows]="10"
+            [rowsPerPageOptions]="[10, 25, 50]" [paginator]="true"
+            [globalFilterFields]="['username', 'email', 'nombre', 'apellido1', 'apellido2', 'activo', 'bloqueado']"
+            [tableStyle]="{ 'min-width': '75rem' }" [(selection)]="selectedUsers" [rowHover]="true"
+            [currentPageReportTemplate]="('SHOWING'|translate) + ' {first} - {last} ' + ('OF'|translate) + ' {totalRecords} ' + ('RESULTS'|translate)"
+            [showCurrentPageReport]="true">
+
+            <!-- Arriba de cabecera de la tabla -->
+            <ng-template pTemplate="caption">
+                <div class="flex items-center justify-between w-full">
+                    <h5 class="m-0">
+                        <p-button [label]="'CLEAR-ALL'|translate" [outlined]="true" icon="pi pi-filter-slash"
+                            (click)="clear(dt1)" />
+                    </h5>
+                    <p-multiSelect display="chip" [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+                        selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}"
+                        placeholder="Choose Columns" />
+                    <div class="relative w-64">
+                        <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input pInputText type="text" (input)="applyGlobalFilter($event)" [placeholder]="('SEARCH'|translate) + '...'"
+                            class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 w-full" />
+                    </div>
+                </div>
+            </ng-template>
+
+            <!-- Cabecera de la tabla -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 4rem" class="text-center align-middle">
+                        <p-tableHeaderCheckbox class="custom-checkbox"></p-tableHeaderCheckbox>
+                    </th>
+                    <th pSortableColumn="id" style="width:7%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ID' | translate }}
+                            <p-sortIcon field="id"></p-sortIcon>
+                            <p-columnFilter type="text" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th *ngFor="let col of selectedColumns" [pSortableColumn]="col.field">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ col.header | translate }}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                            <p-columnFilter [type]="'text'" [field]="col.field" display="menu"
+                                class="ml-auto"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="width:10%">
+                        <div class="header-cell flex justify-between items-center">
+                            {{ 'ACTIONS' | translate }}
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+
+            <!-- Cuerpo de la tabla -->
+            <ng-template pTemplate="body" let-user let-editing="editing" let-ri="rowIndex">
+                <tr [pEditableRow]="user">
+                    <td class="text-center align-middle">
+                        <p-tableCheckbox [value]="user" class="custom-checkbox"></p-tableCheckbox>
+                    </td>
+                    <td>
+                        {{ user.id }}
+                    </td>
+                    <td *ngFor="let col of selectedColumns">
+                        <ng-container [ngSwitch]="col.field">
+                    <td *ngSwitchDefault>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" [(ngModel)]="user[col.field]" />
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{ user[col.field] }}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td *ngSwitchCase="'activo'" class="text-center">
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <p-dropdown [options]="activeOptions" [(ngModel)]="user.activo"
+                                    placeholder="Select Active">
+                                    <ng-template let-option pTemplate="item">
+                                        <i [class]="option.icon"></i> {{option.label}}
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                <i *ngIf="user.activo" class="fa fa-thumbs-up text-success"></i>
+                                <i *ngIf="!user.activo" class="fa fa-thumbs-down text-danger"></i>
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td *ngSwitchCase="'bloqueado'" class="text-center">
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <p-dropdown [options]="blockedOptions" [(ngModel)]="user.bloqueado"
+                                    placeholder="Select Blocked">
+                                    <ng-template let-option pTemplate="item">
+                                        <i [class]="option.icon"></i> {{option.label}}
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                <i *ngIf="user.bloqueado" class="fa fa-lock text-warning"></i>
+                                <i *ngIf="!user.bloqueado" class="fa fa-unlock text-primary"></i>
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td *ngSwitchCase="'roles'" class="text-center">
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <p-dropdown [options]="rolesOptions" [(ngModel)]="user.roles" placeholder="Select Role">
+                                    <ng-template let-option pTemplate="item">
+                                        <i [class]="option.icon"></i> {{option.label}}
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                <i *ngIf="user.roles.includes('ROLE_ADMIN')" class="fa fa-shield-alt text-danger"></i>
+                                <i *ngIf="user.roles.includes('ROLE_USER')" class="fa fa-user text-primary"></i>
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    </ng-container>
+                    </td>
+                    <td>
+                        <div class="flex align-items-center justify-content-center gap-2">
+                            <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                                (click)="onRowEditInit(user)" class="p-button-rounded p-button-text"></button>
+                            <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                                (click)="onRowEditSave(user)"
+                                class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                            <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+                                (click)="onRowEditCancel(user, ri)"
+                                class="p-button-rounded p-button-text p-button-danger"></button>
+                            <p-button *ngIf="!editing" pRipple icon="pi pi-trash" severity="danger" [rounded]="true"
+                                [outlined]="true" (click)="confirmDelete(user)"></p-button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- Pie de la tabla -->
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    {{ 'in total there are' | translate }} {{ users ? users.length : 0 }} {{ 'users.' | translate }}
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<!-- Confirmación de eliminación de usuarios -->
+<p-confirmDialog></p-confirmDialog>

@@ -1,0 +1,48 @@
+.oauthButton {
+  --background: #eed6e7;
+  --font-color: #7b5c72;
+  --font-color-sub: #af92a7;
+  --bg-color: #fff;
+  --main-color: #af92a7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: auto 15px 15px auto;
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: all 250ms;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.oauthButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: #7b5c72;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px #65475c;
+  box-shadow: 4px 8px 19px -3px #65475c;
+  transition: all 250ms;
+}
+
+.oauthButton:hover {
+  color: #e8e8e8;
+}
+
+.oauthButton:hover::before {
+  width: 100%;
+}

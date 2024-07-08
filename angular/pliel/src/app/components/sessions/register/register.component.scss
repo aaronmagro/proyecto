@@ -1,0 +1,216 @@
+// Definición de variables
+$background: #EED6E7;
+$font-color: #7B5C72;
+$font-color-sub: #AF92A7;
+$bg-color: #fff;
+$main-color: #AF92A7;
+
+
+img {
+  margin-top: 5%;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-group {
+  position: relative;
+}
+
+.user-icon,
+.key-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $main-color;
+}
+
+.input-group:last-child {
+  margin-right: 11px;
+}
+
+.form-control {
+  padding-left: 34px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  cursor: pointer;
+  color: #af92a7;
+  transition: transform 0.1s all;
+}
+
+.eye-icon.fa-eye-slash {
+  transform: translateY(-50%) translateX(1.5px);
+}
+
+.google {
+  max-width: 320px;
+  display: flex;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  gap: 0.75rem;
+  color: rgb(65, 63, 63);
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.google svg {
+  height: 24px;
+}
+
+.form {
+  --background: #eed6e7;
+  --font-color: #7b5c72;
+  --font-color-sub: #af92a7;
+  --bg-color: #fff;
+  --main-color: #af92a7;
+  padding: 20px;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  width: 90%; 
+  max-width: 375.175px;
+  margin: 0 auto; 
+}
+
+.form > p {
+  font-family: var(--font-DelaGothicOne);
+  color: var(--font-color);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form > p > span {
+  font-family: var(--font-SpaceMono);
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.separator {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.separator > div {
+  width: 100px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--font-color-sub);
+}
+
+.separator > span {
+  color: var(--font-color);
+  font-family: var(--font-SpaceMono);
+  font-weight: 600;
+}
+
+.form > div input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px 5px 36px;
+  outline: none;
+}
+
+#password {
+  padding-right: 44px;
+}
+
+#password2 {
+    padding-right: 44px;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.olvidar {
+  font-family: var(--font-SpaceMono);
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+}
+
+.container input {
+  display: none;
+}
+
+.container svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: $main-color;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+
+.container input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
+
+.texto {
+    color: $font-color;
+    font-weight: 600;
+}
+
+.texto a {
+    cursor: pointer;
+}

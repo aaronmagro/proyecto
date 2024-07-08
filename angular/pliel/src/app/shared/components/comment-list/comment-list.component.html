@@ -1,0 +1,19 @@
+<!-- Componente de lista de comentarios -->
+<div class="comments-container">
+  <!-- Lista de comentarios -->
+  <ul class="comments-list">
+    <li *ngFor="let comment of displayedComments">
+      <app-comment-item [comment]="comment" (commentDeleted)="onCommentDeleted($event)"></app-comment-item>
+    </li>
+  </ul>
+
+  <!-- Botones de carga -->
+  <div class="load-buttons">
+    <button type="button" *ngIf="displayedComments.length < comments.length" (click)="showMoreComments()">
+      <i class="fa-solid fa-chevron-down"></i> {{ 'SHOW-MORE-COMMENTS' | translate }}
+    </button>
+    <button type="button" *ngIf="displayedComments.length > initialDisplayCount" (click)="showZeroComments()">
+      <i class="fa-solid fa-chevron-up"></i> {{ 'HIDE-COMMENTS' | translate }}
+    </button>
+  </div>
+</div>

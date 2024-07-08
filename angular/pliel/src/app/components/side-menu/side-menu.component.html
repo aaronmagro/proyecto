@@ -1,0 +1,167 @@
+<div class="layout has-sidebar fixed-sidebar fixed-header">
+    <aside id="sidebar" class="sidebar break-point-sm has-bg-image collapsed">
+
+        <!-- Imagen de arribaa del sidebar -->
+        <div class="image-wrapper">
+            <img src="assets/images/logo.png" alt="sidebar background" />
+        </div>
+
+        <!-- Botón de colapsar sidebar -->
+        <a id="btn-collapse" class="sidebar-collapser"><i class="ri-arrow-left-s-line"></i></a>
+
+        <div class="sidebar-layout">
+
+            <!-- Cabecera del sidebar -->
+            <div class="sidebar-header">
+                <div class="pro-sidebar-logo">
+                    <ng-container *ngIf="!isLoading; else loadingTemplate">
+                        <ng-container *ngIf="isSesionIniciada(); else guestTemplate">
+                            <ng-container *ngIf="(datosUsuario$ | async)?.foto; else noPhotoTemplate">
+                                <div>
+                                    <a href="/profile" [title]="'PROFILE' | translate">
+                                        <img [src]="(datosUsuario$ | async)?.foto" alt="..." class="user-avatar">
+                                    </a>
+                                </div>
+                            </ng-container>
+                            <ng-template #noPhotoTemplate>
+                                <div>
+                                    <a href="/profile" [title]="'PROFILE' | translate" class="flex justify-center items-center size-72 text-white">
+                                        <img [src]="sinfoto" alt="..." class="user-avatar">
+                                    </a>
+                                </div>
+                            </ng-template>
+                            <h5>{{(datosUsuario$ | async)?.username }}</h5>
+                        </ng-container>
+                        <ng-template #guestTemplate>
+                            <div>
+                                <a href="/home" [title]="'HOME' | translate">
+                                    <img [src]="logo" alt="logo">
+                                </a>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #loadingTemplate>
+                        <div class="nostyles">
+                            <app-loader></app-loader>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+
+            <!-- Contenido del sidebar -->
+            <div class="sidebar-content">
+                <nav class="menu open-current-submenu">
+                    <ul>
+                        <li class="menu-header uppercase"><span> {{ 'MAIN-PAGES' | translate }} </span></li>
+
+                        <li class="menu-item">
+                            <a href="/home" [title]="'HOME' | translate">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                </span>
+                                <span class="menu-title">{{ 'HOME' | translate }}</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="/books" [title]="'BOOKS' | translate">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-book"></i>
+                                </span>
+                                <span class="menu-title">{{ 'BOOKS' | translate }}</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item">
+                            <a href="/categories" [title]="'CATEGORIES' | translate">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-swatchbook"></i>
+                                </span>
+                                <span class="menu-title">{{ 'CATEGORIES' | translate }}</span>
+                            </a>
+                        </li>
+
+                        <ng-container *ngIf="isSesionIniciada() && (datosUsuario$ | async)?.roles?.includes('ROLE_ADMIN')">
+                            <li class="menu-header"><span> ADMIN </span></li>
+
+                            <li class="menu-item">
+                                <a href="/admin-management" [title]="'DATA-MANAGEMENT' | translate">
+                                    <span class="menu-icon">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </span>
+                                    <span class="menu-title">{{ 'DATA-MANAGEMENT' | translate }}</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="/admin-dashboard" [title]="'DASHBOARD' | translate">
+                                    <span class="menu-icon">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </span>
+                                    <span class="menu-title">{{ 'DASHBOARD' | translate }}</span>
+                                </a>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Pie del sidebar -->
+            <div class="sidebar-footer">
+                <div class="footer-box">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <ng-container *ngIf="!isLoading">
+                                <li *ngIf="!isSesionIniciada()" class="menu-item">
+                                    <a href="/login">
+                                        <span class="menu-icon">
+                                            <i class="ri-login-box-fill"></i>
+                                        </span>
+                                        <span class="menu-title">{{ 'SIGN-IN' | translate }}</span>
+                                    </a>
+                                </li>
+                                <li *ngIf="isSesionIniciada()" class="menu-item" (click)="logout()">
+                                    <a>
+                                        <span class="menu-icon">
+                                            <i class="ri-login-box-fill"></i>
+                                        </span>
+                                        <span class="menu-title">{{ 'SIGN-OUT' | translate }}</span>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Contenido de la página -->
+    <div id="overlay" class="overlay"></div>
+    <div class="layout">
+        <main class="content">
+            <div>
+                <!-- Botón de colapsar sidebar -->
+                <a id="btn-toggle" class="sidebar-toggler break-point-sm" style="z-index: 100;">
+                    <i class="ri-menu-line ri-xl"></i>
+                </a>
+
+                <!-- Selector de idioma -->
+                <ng-container *ngIf="selectedLanguage">
+                    <div class="idiom">
+                        <input type="radio" [id]="selectedLanguage" name="language" [value]="selectedLanguage"
+                            [(ngModel)]="selectedLanguage" (change)="cambiarIdioma()">
+                        <label [for]="selectedLanguage" class="idiom-label" (click)="cambiarIdioma()">
+                            <img [src]="'assets/flags/' + selectedLanguage + '.png'"
+                                alt="{{selectedLanguage | translate}}">
+                        </label>
+                    </div>
+                </ng-container>
+
+                <!-- Contenido de la página -->
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+        <div class="overlay"></div>
+    </div>
+</div>

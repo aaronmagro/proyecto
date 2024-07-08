@@ -1,0 +1,27 @@
+.custom-focus {
+  padding-left: 2rem; /* Asegura que el padding deje espacio para el icono */
+  background-color: #f0f0f0; /* Cambia el color de fondo si lo deseas */
+  border-radius: 4px; /* Redondear bordes */
+}
+
+.p-input-icon-left .pi {
+  left: 1rem; /* Asegura que el icono esté bien posicionado */
+}
+
+.empty-star {
+  color: #918f8fe6; /* Cambia el color de las estrellas vacías */
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#book {
+  animation: fadeIn 0.4s ease-in-out;
+}

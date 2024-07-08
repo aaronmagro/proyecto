@@ -1,0 +1,17 @@
+<!-- Modal para confirmar la eliminación de la cuenta -->
+<div class="modal-content">
+    <h2 class="modal-title">{{ 'DELETE_ACCOUNT.MODAL_TITLE' | translate }}</h2>
+    <p class="modal-warning">
+        {{ 'DELETE_ACCOUNT.MODAL_WARNING' | translate }}
+    </p>
+    <form [formGroup]="confirmForm" (ngSubmit)="onConfirm()">
+        <div class="form-group">
+            <label for="password">{{ 'DELETE_ACCOUNT.PASSWORD_LABEL' | translate }}</label>
+            <input type="password" id="password" formControlName="password" placeholder="{{ 'DELETE_ACCOUNT.PASSWORD_PLACEHOLDER' | translate }}" required>
+        </div>
+        <div class="modal-actions">
+            <button type="button" class="button" (click)="onCancel()">{{ 'DELETE_ACCOUNT.CANCEL_BUTTON' | translate }}</button>
+            <button type="submit" class="button" [disabled]="confirmForm.invalid">{{ 'DELETE_ACCOUNT.DELETE_BUTTON' | translate }}</button>
+        </div>
+    </form>
+</div>
